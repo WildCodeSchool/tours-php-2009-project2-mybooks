@@ -8,7 +8,7 @@
     <input type="hidden" value="{{ livre.id }}" name="id">
 
     <label for="titre">Titre</label>
-    <input type="text" id="titre" name="titre" value="{{ livre.title }}" required></br>
+    <input type="text" id="titre" name="titre" value="{{ livre.titre }}" required></br>
 
     <label for="auteur">Auteur</label>
     <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}" required></br>
@@ -32,6 +32,6 @@
     <input type="text" id="localisation" name="localisation" value="{{ livre.localisation }}"></br>
 
     <label for="description">Description</label></br>
-    <textarea id="description" name="description" value="{{ livre.description }}" ></textarea></br>
+    <textarea id="description" name="description">{{ livre.description }}</textarea></br>
     <input type="submit" value="Ajouter">
 </form>

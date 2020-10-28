@@ -69,7 +69,19 @@ class LivreController extends AbstractController
         $livre = $itemManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $livre['titre'] = $_POST['titre'];
+            $livre = [
+                'id' => $_POST['id'],
+                'titre' => $_POST['titre'],
+                'auteur' => $_POST['auteur'],
+                'parution' => $_POST['parution'],
+                'lecture' => $_POST['lecture'],
+                'lu' => $_POST['lu'],
+                'isbn' => $_POST['isbn'],
+                'localisation' => $_POST['localisation'],
+                'genre' => $_POST['genre'],
+                'description' => $_POST['description'],
+                
+            ];
             $itemManager->update($livre);
         }
 

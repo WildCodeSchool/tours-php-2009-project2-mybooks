@@ -72,13 +72,23 @@ class LivreManager extends AbstractManager
      * @param array $livre
      * @return bool
      */
-    public function update(array $livre):bool
+    public function update(array $livre): bool
     {
-
+    
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `titre` = :titre WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE livre SET `titre` = :titre, `auteur` = :auteur ,
+         `parution` = :parution,`lecture` = :lecture, `lu` = :lu, `isbn` = :isbn, 
+         `localisation` = :localisation, `genre` = :genre, `description` = :description WHERE id=:id");
         $statement->bindValue('id', $livre['id'], PDO::PARAM_INT);
         $statement->bindValue('titre', $livre['titre'], PDO::PARAM_STR);
+        $statement->bindValue('auteur', $livre['auteur'], PDO::PARAM_STR);
+        $statement->bindValue('parution', $livre['parution'], PDO::PARAM_STR);
+        $statement->bindValue('lecture', $livre['lecture'], PDO::PARAM_STR);
+        $statement->bindValue('lu', $livre['lu'], PDO::PARAM_STR);
+        $statement->bindValue('isbn', $livre['isbn'], PDO::PARAM_STR);
+        $statement->bindValue('localisation', $livre['localisation'], PDO::PARAM_STR);
+        $statement->bindValue('genre', $livre['genre'], PDO::PARAM_STR);
+        $statement->bindValue('description', $livre['description'], PDO::PARAM_STR);
 
         return $statement->execute();
     }
