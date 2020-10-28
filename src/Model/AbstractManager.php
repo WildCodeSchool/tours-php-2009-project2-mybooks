@@ -8,7 +8,7 @@
  */
 namespace App\Model;
 
-use App\Model\Connection;
+use PDO;
 
 /**
  * Abstract class handling default manager.
@@ -48,7 +48,7 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
-        return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll();
+        return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -65,6 +65,6 @@ abstract class AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
-        return $statement->fetch();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

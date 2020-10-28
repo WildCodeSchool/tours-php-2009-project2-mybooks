@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Livre {{ livre.titre }}</h1>
+    <p>{{ livre.id }}. {{ livre.titre }}</p>
+    <a href="/Livre/edit/{{ livre.id }}">Edit</a>
+    <a href="/Livre/delete/{{livre.id}}">Supprimer</a>
+    <a href="/Livre/index">Back</a>
+{% endblock %}

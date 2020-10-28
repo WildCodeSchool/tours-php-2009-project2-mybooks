@@ -9,13 +9,13 @@
 
 namespace App\Controller;
 
-use App\Model\ItemManager;
+use App\Model\LivreManager;
 
 /**
- * Class ItemController
+ * Class LivreController
  *
  */
-class ItemController extends AbstractController
+class LivreController extends AbstractController
 {
 
 
@@ -29,10 +29,10 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->selectAll();
+        $itemManager = new LivreManager();
+        $livres = $itemManager->selectAll();
 
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
+        return $this->twig->render('Livre/index.html.twig', ['livres' => $livres]);
     }
 
 
@@ -47,10 +47,10 @@ class ItemController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $itemManager = new LivreManager();
+        $livre = $itemManager->selectOneById($id);
 
-        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
+        return $this->twig->render('Livre/show.html.twig', ['livre' => $livre]);
     }
 
 
@@ -65,15 +65,15 @@ class ItemController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $itemManager = new LivreManager();
+        $livre = $itemManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item['title'] = $_POST['title'];
-            $itemManager->update($item);
+            $livre['titre'] = $_POST['titre'];
+            $itemManager->update($livre);
         }
 
-        return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
+        return $this->twig->render('Livre/edit.html.twig', ['livre' => $livre]);
     }
 
 
@@ -89,15 +89,24 @@ class ItemController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager();
-            $item = [
-                'title' => $_POST['title'],
+            $itemManager = new LivreManager();
+            $livre = [
+                'titre' => $_POST['titre'],
+                'auteur' => $_POST['auteur'],
+                'parution' => $_POST['parution'],
+                'lecture' => $_POST['lecture'],
+                'lu' => $_POST['lu'],
+                'isbn' => $_POST['isbn'],
+                'localisation' => $_POST['localisation'],
+                'genre' => $_POST['genre'],
+                'description' => $_POST['description'],
+
             ];
-            $id = $itemManager->insert($item);
-            header('Location:/item/show/' . $id);
+            $id = $itemManager->insert($livre);
+            header('Location:/Livre/show/' . $id);
         }
 
-        return $this->twig->render('Item/add.html.twig');
+        return $this->twig->render('Livre/add.html.twig');
     }
 
 
@@ -108,8 +117,8 @@ class ItemController extends AbstractController
      */
     public function delete(int $id)
     {
-        $itemManager = new ItemManager();
+        $itemManager = new LivreManager();
         $itemManager->delete($id);
-        header('Location:/item/index');
+        header('Location:/Livre/index');
     }
 }

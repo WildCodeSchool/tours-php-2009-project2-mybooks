@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Livres</h1>
+    <ul>
+        {% for livre in livres %}
+            <li><a href="/Livre/show/{{ livre.id }}">{{ livre.id }}. {{ livre.titre }} - {{ livre.auteur }} -
+                    {{ livre.parution }} - {{ livre.lecture }} - {{ livre.lu }} - {{ livre.isbn }} -
+                    {{ livre.localisation }} - {{ livre.genre }} - {{ livre.description }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+    <a href="/Livre/add">Ajouter</a>
+{% endblock %}
