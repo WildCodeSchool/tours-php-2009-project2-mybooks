@@ -2,11 +2,10 @@
 
 {% block content %}
     <h1>Livres</h1>
+    <div class="img"></div>
     <ul>
         {% for livre in livres %}
-            <li><a href="/Livre/show/{{ livre.id }}">{{ livre.id }}. {{ livre.titre }} - {{ livre.auteur }} -
-                    {{ livre.parution }} - {{ livre.lecture }} - {{ livre.lu }} - {{ livre.isbn }} -
-                    {{ livre.localisation }} - {{ livre.genre }} - {{ livre.description }}</a></li>
+            <li><a href="/Livre/show/{{ livre.id }}">{{ livre.id }}. {{ livre.titre }} - {{ livre.auteur }}</a></li>
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}

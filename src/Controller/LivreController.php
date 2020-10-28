@@ -99,6 +99,9 @@ class LivreController extends AbstractController
      */
     public function add()
     {
+        if (!isset($_POST['lu'])) {
+            $_POST['lu'] = '0';
+        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $itemManager = new LivreManager();
@@ -114,6 +117,7 @@ class LivreController extends AbstractController
                 'description' => $_POST['description'],
 
             ];
+
             $id = $itemManager->insert($livre);
             header('Location:/Livre/show/' . $id);
         }
