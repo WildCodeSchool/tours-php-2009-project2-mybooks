@@ -16,7 +16,7 @@ use PDO;
 abstract class AbstractManager
 {
     /**
-     * @var \PDO
+     * @var PDO
      */
     protected $pdo; //variable de connexion
 
@@ -58,11 +58,11 @@ abstract class AbstractManager
      *
      * @return array
      */
-    public function selectOneById(int $id)
+    public function selectOneById(int $id): array
     {
         // prepared request
         $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetch(PDO::FETCH_ASSOC);

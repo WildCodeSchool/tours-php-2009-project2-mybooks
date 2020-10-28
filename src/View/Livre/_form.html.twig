@@ -23,7 +23,7 @@
     <input type="text" id="isbn" name="isbn" value="{{ livre.isbn }}" required></br>
 
     <label for="lu">Lu</label>
-    <input type="checkbox" id="lu" name="lu" value="1">
+    <input type="checkbox" id="lu" name="lu" value="1" {% if livre.lu == 1 %}checked{% endif %}>
 
     <label for="lecture">Le</label>
     <input type="text" id="lecture" name="lecture" value="{{ livre.lecture }}"></br>

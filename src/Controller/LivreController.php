@@ -19,6 +19,7 @@ class LivreController extends AbstractController
 {
 
 
+
     /**
      * Display item listing
      *
@@ -68,6 +69,9 @@ class LivreController extends AbstractController
         $itemManager = new LivreManager();
         $livre = $itemManager->selectOneById($id);
 
+        if (!isset($_POST['lu'])) {
+            $_POST['lu'] = '0';
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $livre['titre'] = $_POST['titre'];
             $itemManager->update($livre);
@@ -118,7 +122,7 @@ class LivreController extends AbstractController
      *
      * @param int $id
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         $itemManager = new LivreManager();
         $itemManager->delete($id);
