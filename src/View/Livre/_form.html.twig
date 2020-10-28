@@ -8,7 +8,7 @@
     <input type="hidden" value="{{ livre.id }}" name="id">
 
     <label for="titre">Titre</label>
-    <input type="text" id="titre" name="titre" value="{{ livre.title }}" required></br>
+    <input type="text" id="titre" name="titre" value="{{ livre.titre }}" required></br>
 
     <label for="auteur">Auteur</label>
     <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}" required></br>
@@ -23,7 +23,7 @@
     <input type="text" id="isbn" name="isbn" value="{{ livre.isbn }}" required></br>
 
     <label for="lu">Lu</label>
-    <input type="checkbox" id="lu" name="lu" value="{{ livre.lu }}" checked>
+    <input type="checkbox" id="lu" name="lu" value="1">
 
     <label for="lecture">Le</label>
     <input type="text" id="lecture" name="lecture" value="{{ livre.lecture }}"></br>
