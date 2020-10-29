@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}My Books{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
     {% block stylesheet %}{% endblock %}
@@ -13,10 +13,23 @@
 </head>
 
 <body>
+    <header class="header">
+                <h1 class= "titre"><a href="/../">My Books</a></h1>
+                <p class="user">User <img src="/assets/images/user.png" class="userImage"> </p>
+               
+    </header>
 
-{% block content %}{% endblock %}
-{% block javascript %}{% endblock %}
+           {% block content %}
+           {% endblock %}
+
+        {% block javascript %}{% endblock %}
+
+
+    <footer>
+        <div class="footer">
+            <p>Mentions légales<p>
+        <div class="footer">
+    </footer>
+
 </body>
 </html>
-
-

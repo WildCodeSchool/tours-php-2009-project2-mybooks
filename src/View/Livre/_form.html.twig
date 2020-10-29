@@ -3,24 +3,24 @@
     <input type="text" value="{{ item.title }}" name="title">
     <input type="submit" value="Valider">
 </form>#}
-<form action="" method="post">
+<form action="" method="post" class="form">
 
     <input type="hidden" value="{{ livre.id }}" name="id">
 
     <label for="titre">Titre</label>
-    <input type="text" id="titre" name="titre" value="{{ livre.title }}" required></br>
+    <input type="text" class="inputPosition" id="titre" name="titre" value="{{ livre.title }}" required></br>
 
     <label for="auteur">Auteur</label>
-    <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}" required></br>
+    <input type="text" class="inputPosition" id="auteur" name="auteur" value="{{ livre.auteur }}" required></br>
 
     <label for="parution">Date de Parution</label>
-    <input type="text" id="parution" name="parution" value="{{ livre.parution }}"></br>
+    <input type="text" class="inputPosition" id="parution" name="parution" value="{{ livre.parution }}"></br>
 
     <label for="genre">Genre</label>
-    <input type="text" id="genre" name="genre" value="{{ livre.genre }}"></br>
+    <input type="text" class="inputPosition" id="genre" name="genre" value="{{ livre.genre }}"></br>
 
     <label for="isbn">ISBN</label>
-    <input type="text" id="isbn" name="isbn" value="{{ livre.isbn }}" required></br>
+    <input type="text" class="inputPosition" id="isbn" name="isbn" value="{{ livre.isbn }}" required></br>
 
     <label for="lu">Lu</label>
     <input type="checkbox" id="lu" name="lu" value="{{ livre.lu }}" checked>
@@ -29,9 +29,9 @@
     <input type="text" id="lecture" name="lecture" value="{{ livre.lecture }}"></br>
 
     <label for="localisation">Localisation</label>
-    <input type="text" id="localisation" name="localisation" value="{{ livre.localisation }}"></br>
+    <input type="text" class="inputPosition" id="localisation" name="localisation" value="{{ livre.localisation }}"></br>
 
     <label for="description">Description</label></br>
-    <textarea id="description" name="description" value="{{ livre.description }}" ></textarea></br>
-    <input type="submit" value="Ajouter">
+    <textarea class="inputPosition" id="description" name="description" value="{{ livre.description }}" ></textarea></br>
+    <input type="submit" id="submit" value="Ajouter">
 </form>

@@ -1,0 +1,176 @@
+/*Colors*/
+
+:root{
+    --main-background-color : #EFEFEF;
+    --second-background-color: #DEDEDE;
+}
+
+/*All pages*/
+
+body{
+    background-color: var(--main-color);
+}
+
+.header{
+    display: flex;
+}
+
+.titre{
+    flex: 5%;
+    font-size: 2.5rem;
+}
+
+.titre a{
+    text-decoration: none;
+    color: black;
+
+}
+
+.user{
+    justify-content: flex-end;
+
+}
+
+.userImage{
+
+    width: 20px;
+}
+
+/*index*/
+
+.presentationImage{
+    width : 100%;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+h1{
+    text-align:center;
+}
+
+.hrLibrary{
+    width: 80%;
+}
+
+.myLibrary{
+    background-color: var(--second-background-color);
+    border-radius: 10px;
+}
+
+.myLibrary ul li{
+    list-style-type: none;
+}
+
+
+.myLibrary ul li a{
+    text-decoration: none;
+    color: black;
+    margin-bottom: 50px;
+}
+
+
+
+.plusImage{
+    width:1.4em;
+    height: auto;
+}
+
+.alignPlusImage{
+    text-align: center;
+}
+
+
+/* Form*/
+
+
+.form{
+    margin: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--second-background-color);
+}
+
+
+.inputPosition{
+    padding: 2px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    width: 20em;
+
+}
+
+
+#lu{
+    padding: 2px;
+    margin-bottom: 15px;
+}
+
+#lecture{
+    padding: 2px;
+    margin-bottom: 15px;
+}
+
+
+textarea{
+    height: 5em;
+    width: 20em;
+}
+
+
+
+/*Edit*/
+
+.bookDescription{
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--second-background-color);
+}
+
+#hrDescription{
+    text-align: center;
+    width: 50%;
+}
+
+
+.hightIcons{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 60px;
+    padding-right: 10px;
+}
+
+.pen{
+    width: 25px;
+    padding-right: 20px;
+}
+
+.trash{
+    width: 25px;
+}
+
+.cross{
+    width: 30px;
+}
+
+.bottomIcon{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-right: 10px;
+}
+
+
+
+/*Footer*/
+
+footer {    
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+
+}
+

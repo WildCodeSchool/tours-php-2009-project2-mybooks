@@ -1,16 +1,23 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Livres</h1>
-    <div class="img"></div>
-    <ul>
-        {% for livre in livres %}
-            <li><a href="/Livre/show/{{ livre.id }}">{{ livre.id }}. {{ livre.titre }} - {{ livre.auteur }} -
-                    {{ livre.parution }} - {{ livre.lecture }} - {{ livre.lu }} - {{ livre.isbn }} -
-                    {{ livre.localisation }} - {{ livre.genre }} - {{ livre.description }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/Livre/add">Ajouter</a>
+    <main>
+        <img src="/assets/images/presentation.jpg" class="presentationImage">
+       
+        <h1 >Ma bibliothèque</h1>
+        <hr class="hrLibrary">
+        <div class="myLibrary">
+            <ul>
+                {% for livre in livres %}
+                    <li><a href="/Livre/show/{{ livre.id }}"> {{ livre.titre }} {{ livre.lu }}<br>{{ livre.auteur }} <br><br></a></li>
+                {% else %}
+                    <li>Nothing to display</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class ="alignPlusImage">
+            <a href="/Livre/add"><img src="/assets/images/iconeplus.png"  class="plusImage"></a>
+        </div>
+
+    </main>
 {% endblock %}
