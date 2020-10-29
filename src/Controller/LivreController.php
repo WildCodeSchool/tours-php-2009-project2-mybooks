@@ -29,8 +29,8 @@ class LivreController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new LivreManager();
-        $livres = $itemManager->selectAll();
+        $livreManager = new LivreManager();
+        $livres = $livreManager->selectAll();
 
         return $this->twig->render('Livre/index.html.twig', ['livres' => $livres]);
     }
@@ -47,8 +47,8 @@ class LivreController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new LivreManager();
-        $livre = $itemManager->selectOneById($id);
+        $livreManager = new LivreManager();
+        $livre = $livreManager->selectOneById($id);
 
         return $this->twig->render('Livre/show.html.twig', ['livre' => $livre]);
     }
@@ -65,8 +65,8 @@ class LivreController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new LivreManager();
-        $livre = $itemManager->selectOneById($id);
+        $livreManager = new LivreManager();
+        $livre = $livreManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $livre = [
@@ -82,7 +82,7 @@ class LivreController extends AbstractController
                 'description' => $_POST['description'],
                 
             ];
-            $itemManager->update($livre);
+            $livreManager->update($livre);
         }
 
         return $this->twig->render('Livre/edit.html.twig', ['livre' => $livre]);
@@ -104,7 +104,7 @@ class LivreController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new LivreManager();
+            $livreManager = new LivreManager();
             $livre = [
                 'titre' => $_POST['titre'],
                 'auteur' => $_POST['auteur'],
@@ -118,7 +118,7 @@ class LivreController extends AbstractController
 
             ];
 
-            $id = $itemManager->insert($livre);
+            $id = $livreManager->insert($livre);
             header('Location:/Livre/show/' . $id);
         }
 
@@ -133,8 +133,8 @@ class LivreController extends AbstractController
      */
     public function delete(int $id)
     {
-        $itemManager = new LivreManager();
-        $itemManager->delete($id);
+        $livreManager = new LivreManager();
+        $livreManager->delete($id);
         header('Location:/Livre/index');
     }
 }
