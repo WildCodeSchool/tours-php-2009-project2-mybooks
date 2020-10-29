@@ -40,8 +40,8 @@ class LivreManager extends AbstractManager
         :lecture, :lu, :isbn, :localisation, :genre, :description)");
         $statement->bindValue('titre', $livre['titre'], PDO::PARAM_STR);
         $statement->bindValue('auteur', $livre['auteur'], PDO::PARAM_STR);
-        $statement->bindValue('parution', $livre['parution'], PDO::PARAM_INT);
-        $statement->bindValue('lecture', $livre['lecture'], PDO::PARAM_INT);
+        $statement->bindValue('parution', $livre['parution'], PDO::PARAM_STR);
+        $statement->bindValue('lecture', $livre['lecture'], PDO::PARAM_STR);
         $statement->bindValue('lu', $livre['lu'], PDO::PARAM_BOOL);
         $statement->bindValue('isbn', $livre['isbn'], PDO::PARAM_STR);
         $statement->bindValue('localisation', $livre['localisation'], PDO::PARAM_STR);

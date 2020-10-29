@@ -67,14 +67,27 @@ class LivreController extends AbstractController
     {
         $livreManager = new LivreManager();
         $livre = $livreManager->selectOneById($id);
+        $dateParutionArray = explode('-', $livre['parution']);
+        $anneeParution = $dateParutionArray[0];
+        $moisParution = $dateParutionArray[1];
+        $jourParution = $dateParutionArray[2];
+
+        $dateLectureArray = explode('-', $livre['lecture']);
+        $anneeLecture = $dateLectureArray[0];
+        $moisLecture = $dateLectureArray[1];
+        $jourLecture = $dateLectureArray[2];
+
+        if (!isset($_POST['lu'])) {
+            $_POST['lu'] = '0';
+        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $livre = [
                 'id' => $_POST['id'],
                 'titre' => $_POST['titre'],
                 'auteur' => $_POST['auteur'],
-                'parution' => $_POST['parution'],
-                'lecture' => $_POST['lecture'],
+                'parution' => $_POST['anneeParution'] . '-' . $_POST['moisParution'] . '-' . $_POST['jourParution'],
+                'lecture' => $_POST['anneeLecture'] . '-' . $_POST['moisLecture'] . '-' . $_POST['jourLecture'],
                 'lu' => $_POST['lu'],
                 'isbn' => $_POST['isbn'],
                 'localisation' => $_POST['localisation'],
@@ -83,9 +96,12 @@ class LivreController extends AbstractController
                 
             ];
             $livreManager->update($livre);
+            header('Location:/Livre/show/' . $id);
         }
 
-        return $this->twig->render('Livre/edit.html.twig', ['livre' => $livre]);
+        return $this->twig->render('Livre/edit.html.twig', ['livre' => $livre,
+        'anneeParution' => $anneeParution, 'moisParution' => $moisParution, 'jourParution' => $jourParution,
+        'anneeLecture' => $anneeLecture, 'moisLecture' => $moisLecture, 'jourLecture' => $jourLecture]);
     }
 
 
@@ -108,8 +124,8 @@ class LivreController extends AbstractController
             $livre = [
                 'titre' => $_POST['titre'],
                 'auteur' => $_POST['auteur'],
-                'parution' => $_POST['parution'],
-                'lecture' => $_POST['lecture'],
+                'parution' => $_POST['anneeParution'] . '-' . $_POST['moisParution'] . '-' . $_POST['jourParution'],
+                'lecture' => $_POST['anneeLecture'] . '-' . $_POST['moisLecture'] . '-' . $_POST['jourLecture'],
                 'lu' => $_POST['lu'],
                 'isbn' => $_POST['isbn'],
                 'localisation' => $_POST['localisation'],

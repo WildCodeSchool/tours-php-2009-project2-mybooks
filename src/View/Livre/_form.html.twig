@@ -13,8 +13,12 @@
     <label for="auteur">Auteur</label>
     <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}" required></br>
 
-    <label for="parution">Date de Parution</label>
-    <input type="text" id="parution" name="parution" value="{{ livre.parution }}"></br>
+    <label for="jourParution">Date de Parution</label>
+    <input type="number" id="jourParution" name="jourParution" value="{{ jourParution }}" min=1 max=31 >
+    <label for="moisParution">/</label>
+    <input type="number" id="moisParution" name="moisParution" value="{{ moisParution }}" min=1 max=12 >
+    <label for="anneeParution">/</label>
+    <input type="number" id="anneeParution" name="anneeParution" value="{{ anneeParution }}"></br>
 
     <label for="genre">Genre</label>
     <input type="text" id="genre" name="genre" value="{{ livre.genre }}"></br>
@@ -25,8 +29,12 @@
     <label for="lu">Lu</label>
     <input type="checkbox" id="lu" name="lu" value="1">
 
-    <label for="lecture">Le</label>
-    <input type="text" id="lecture" name="lecture" value="{{ livre.lecture }}"></br>
+    <label for="jourLecture">Le</label>
+    <input type="number" id="jourLecture" name="jourLecture" value="{{ jourLecture }}" min=1 max=31>
+    <label for="moisLecture">/</label>
+    <input type="number" id="moisLecture" name="moisLecture" value="{{ moisLecture }}" min=1 max=12 >
+    <label for="anneeLecture">/</label>
+    <input type="number" id="anneeLecture" name="anneeLecture" value="{{ anneeLecture }}"></br>
 
     <label for="localisation">Localisation</label>
     <input type="text" id="localisation" name="localisation" value="{{ livre.localisation }}"></br>
