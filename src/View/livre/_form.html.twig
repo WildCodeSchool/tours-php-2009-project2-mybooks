@@ -1,17 +1,15 @@
-{#  <form method="post">
-    <input type="hidden" value="{{ item.id }}" name="id">
-    <input type="text" value="{{ item.title }}" name="title">
-    <input type="submit" value="Valider">
-</form>#}
+{% for error in errors %}
+{{ error }}
+{% endfor %}
 <form action="" method="post">
 
     <input type="hidden" value="{{ livre.id }}" name="id">
 
     <label for="titre">Titre</label>
-    <input type="text" id="titre" name="titre" value="{{ livre.titre }}" required></br>
+    <input type="text" id="titre" name="titre" value="{{ livre.titre }}"></br>
 
     <label for="auteur">Auteur</label>
-    <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}" required></br>
+    <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}"></br>
 
     <label for="jourParution">Date de Parution</label>
     <input type="number" id="jourParution" name="jourParution" value="{{ jourParution }}" min=1 max=31 >
@@ -24,10 +22,10 @@
     <input type="text" id="genre" name="genre" value="{{ livre.genre }}"></br>
 
     <label for="isbn">ISBN</label>
-    <input type="text" id="isbn" name="isbn" value="{{ livre.isbn }}" required></br>
+    <input type="text" id="isbn" name="isbn" value="{{ livre.isbn }}" ></br>
 
     <label for="lu">Lu</label>
-    <input type="checkbox" id="lu" name="lu" value="1">
+    <input type="checkbox" id="lu" name="lu" value="1" {% if livre.lu == 1 %} checked {% endif %}>
 
     <label for="jourLecture">Le</label>
     <input type="number" id="jourLecture" name="jourLecture" value="{{ jourLecture }}" min=1 max=31>

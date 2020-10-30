@@ -1,18 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 11/10/17
- * Time: 16:07
- * PHP version 7
- */
-
 namespace App\Controller;
 
 use App\Model\LivreManager;
 
 /**
- * Class LivreController
+ * Class livreController
  *
  */
 class LivreController extends AbstractController
@@ -32,7 +24,7 @@ class LivreController extends AbstractController
         $livreManager = new LivreManager();
         $livres = $livreManager->selectAll();
 
-        return $this->twig->render('Livre/index.html.twig', ['livres' => $livres]);
+        return $this->twig->render('livre/index.html.twig', ['livres' => $livres]);
     }
 
 
@@ -50,7 +42,7 @@ class LivreController extends AbstractController
         $livreManager = new LivreManager();
         $livre = $livreManager->selectOneById($id);
 
-        return $this->twig->render('Livre/show.html.twig', ['livre' => $livre]);
+        return $this->twig->render('livre/show.html.twig', ['livre' => $livre]);
     }
 
 
@@ -65,8 +57,10 @@ class LivreController extends AbstractController
      */
     public function edit(int $id): string
     {
+        $errors = [];
         $livreManager = new LivreManager();
         $livre = $livreManager->selectOneById($id);
+        
         $dateParutionArray = explode('-', $livre['parution']);
         $anneeParution = $dateParutionArray[0];
         $moisParution = $dateParutionArray[1];
@@ -95,13 +89,16 @@ class LivreController extends AbstractController
                 'description' => $_POST['description'],
                 
             ];
-            $livreManager->update($livre);
-            header('Location:/Livre/show/' . $id);
+            $errors = $this->validate($livre);
+            if (empty($errors)) {
+                $livreManager->update($livre);
+                header('Location:/livre/show/' . $id);
+            }
         }
-
-        return $this->twig->render('Livre/edit.html.twig', ['livre' => $livre,
+        return $this->twig->render('livre/edit.html.twig', ['livre' => $livre,
         'anneeParution' => $anneeParution, 'moisParution' => $moisParution, 'jourParution' => $jourParution,
-        'anneeLecture' => $anneeLecture, 'moisLecture' => $moisLecture, 'jourLecture' => $jourLecture]);
+        'anneeLecture' => $anneeLecture, 'moisLecture' => $moisLecture, 'jourLecture' => $jourLecture,
+        'errors' => $errors]);
     }
 
 
@@ -115,6 +112,7 @@ class LivreController extends AbstractController
      */
     public function add()
     {
+        $errors = [];
         if (!isset($_POST['lu'])) {
             $_POST['lu'] = '0';
         }
@@ -131,16 +129,41 @@ class LivreController extends AbstractController
                 'localisation' => $_POST['localisation'],
                 'genre' => $_POST['genre'],
                 'description' => $_POST['description'],
-
             ];
-
-            $id = $livreManager->insert($livre);
-            header('Location:/Livre/show/' . $id);
+            $errors = $this->validate($livre);
+            if (empty($errors)) {
+                $id = $livreManager->insert($livre);
+                header('Location:/livre/show/' . $id);
+            }
         }
-
-        return $this->twig->render('Livre/add.html.twig');
+        return $this->twig->render('livre/add.html.twig', ['errors' => $errors]);
     }
 
+    public function validate(array $livre): array
+    {
+        $errors = [];
+        if (empty($livre['titre'])) {
+            $errors [] = 'Veuillez ajouter un titre';
+        } if (empty($livre['auteur'])) {
+            $errors [] = 'Veuillez rentrer un auteur';
+        } if (empty($livre['isbn'])) {
+            $errors [] = 'Veuillez rentrer un ISBN';
+        } if (empty($livre['localisation'])) {
+            $errors [] = 'Veuillez rentrer une localisation';
+        } if (!empty($livre['titre']) && strlen($livre['titre']) > 50) {
+            $errors [] = 'Votre titre est trop long';
+        } if (!empty($livre['auteur']) && strlen($livre['auteur']) > 50) {
+            $errors [] = 'Votre nom d\'auteur est trop long';
+        } if (!empty($livre['isbn']) && strlen($livre['isbn']) > 13) {
+            $errors [] = 'Votre ISBN est trop long';
+        } if (!empty($livre['localisation']) && strlen($livre['localisation']) > 100) {
+            $errors [] = 'La localisation est trop long';
+        } if (!empty($livre['genre']) && strlen($livre['genre']) > 50) {
+                $errors [] = 'Votre champs "genre" fait plus de 50 caractères';
+        }
+
+        return $errors ?? [];
+    }
 
     /**
      * Handle item deletion
@@ -151,6 +174,6 @@ class LivreController extends AbstractController
     {
         $livreManager = new LivreManager();
         $livreManager->delete($id);
-        header('Location:/Livre/index');
+        header('Location:/livre/index');
     }
 }

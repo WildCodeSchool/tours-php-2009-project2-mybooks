@@ -1,11 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Livre {{ livre.titre }}</h1>
+    <h1>livre {{ livre.titre }}</h1>
     <p>{{ livre.id }}. {{ livre.titre }} - {{ livre.auteur }} -
 {{ livre.parution }} - {{ livre.lecture }} - {{ livre.lu }} - {{ livre.isbn }} -
 {{ livre.localisation }} - {{ livre.genre }} - {{ livre.description }}</p>
-    <a href="/Livre/edit/{{ livre.id }}">Edit</a>
-    <a href="/Livre/delete/{{livre.id}}">Supprimer</a>
+    <a href="/livre/edit/{{ livre.id }}">Edit</a>
+    <a href="/livre/delete/{{livre.id}}">Supprimer</a>
     <a href="/">Back</a>
 {% endblock %}
