@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sylvain
- * Date: 07/03/18
- * Time: 20:52
- * PHP version 7
- */
+
 namespace App\Model;
 
 use PDO;
@@ -16,7 +10,7 @@ use PDO;
 abstract class AbstractManager
 {
     /**
-     * @var \PDO
+     * @var PDO
      */
     protected $pdo; //variable de connexion
 
@@ -48,7 +42,7 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
-        return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll();
     }
 
     /**
@@ -62,9 +56,9 @@ abstract class AbstractManager
     {
         // prepared request
         $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        return $statement->fetch();
     }
 }

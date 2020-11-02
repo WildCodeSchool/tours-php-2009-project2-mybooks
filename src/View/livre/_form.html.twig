@@ -1,13 +1,18 @@
-{% for error in errors %}
-{{ error }}
+{#{% for error in emptyErrors %}
+{{ error }}</br>
 {% endfor %}
+{% for error in tooLongErrors %}
+{{ error }}</br>
+{% endfor %}#}
 <form action="" method="post">
 
     <input type="hidden" value="{{ livre.id }}" name="id">
 
+    {{ emptyErrors.titre }}{{ tooLongErrors.titre }}</br>
     <label for="titre">Titre</label>
     <input type="text" id="titre" name="titre" value="{{ livre.titre }}"></br>
 
+    {{ emptyErrors.auteur }}{{ tooLongErrors.auteur}}</br>
     <label for="auteur">Auteur</label>
     <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}"></br>
 
@@ -16,11 +21,13 @@
     <label for="moisParution">/</label>
     <input type="number" id="moisParution" name="moisParution" value="{{ moisParution }}" min=1 max=12 >
     <label for="anneeParution">/</label>
-    <input type="number" id="anneeParution" name="anneeParution" value="{{ anneeParution }}"></br>
+    <input type="number" id="anneeParution" name="anneeParution" value="{{ anneeParution }}">
 
+    {{ tooLongErrors.genre }}</br>
     <label for="genre">Genre</label>
     <input type="text" id="genre" name="genre" value="{{ livre.genre }}"></br>
 
+    {{ emptyErrors.isbn }}{{ tooLongErrors.isbn }}</br>
     <label for="isbn">ISBN</label>
     <input type="text" id="isbn" name="isbn" value="{{ livre.isbn }}" ></br>
 
@@ -34,6 +41,7 @@
     <label for="anneeLecture">/</label>
     <input type="number" id="anneeLecture" name="anneeLecture" value="{{ anneeLecture }}"></br>
 
+    {{ emptyErrors.localisation }}{{ tooLongErrors.localisation }}</br>
     <label for="localisation">Localisation</label>
     <input type="text" id="localisation" name="localisation" value="{{ livre.localisation }}"></br>
 

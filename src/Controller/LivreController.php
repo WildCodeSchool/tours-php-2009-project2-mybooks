@@ -19,7 +19,7 @@ class LivreController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index()
+    public function index(): string
     {
         $livreManager = new LivreManager();
         $livres = $livreManager->selectAll();
@@ -57,7 +57,8 @@ class LivreController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $errors = [];
+        $emptyErrors = [];
+        $tooLongErrors = [];
         $livreManager = new LivreManager();
         $livre = $livreManager->selectOneById($id);
         
@@ -89,8 +90,9 @@ class LivreController extends AbstractController
                 'description' => $_POST['description'],
                 
             ];
-            $errors = $this->validate($livre);
-            if (empty($errors)) {
+            $emptyErrors = $this->isEmpty($livre);
+            $tooLongErrors = $this->isTooLong($livre);
+            if (empty($emptyErrors) && empty($tooLongErrors)) {
                 $livreManager->update($livre);
                 header('Location:/livre/show/' . $id);
             }
@@ -98,7 +100,7 @@ class LivreController extends AbstractController
         return $this->twig->render('livre/edit.html.twig', ['livre' => $livre,
         'anneeParution' => $anneeParution, 'moisParution' => $moisParution, 'jourParution' => $jourParution,
         'anneeLecture' => $anneeLecture, 'moisLecture' => $moisLecture, 'jourLecture' => $jourLecture,
-        'errors' => $errors]);
+        'emptyErrors' => $emptyErrors, 'tooLongErrors' => $tooLongErrors]);
     }
 
 
@@ -110,9 +112,10 @@ class LivreController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add()
+    public function add(): string
     {
-        $errors = [];
+        $emptyErrors = [];
+        $tooLongErrors = [];
         if (!isset($_POST['lu'])) {
             $_POST['lu'] = '0';
         }
@@ -130,39 +133,53 @@ class LivreController extends AbstractController
                 'genre' => $_POST['genre'],
                 'description' => $_POST['description'],
             ];
-            $errors = $this->validate($livre);
-            if (empty($errors)) {
+            $emptyErrors = $this->isEmpty($livre);
+            $tooLongErrors = $this->isTooLong($livre);
+            if (empty($emptyErrors) && empty($tooLongErrors)) {
                 $id = $livreManager->insert($livre);
                 header('Location:/livre/show/' . $id);
             }
         }
-        return $this->twig->render('livre/add.html.twig', ['errors' => $errors]);
+        return $this->twig->render('livre/add.html.twig', ['emptyErrors' => $emptyErrors,
+        'tooLongErrors' => $tooLongErrors]);
     }
 
-    public function validate(array $livre): array
+    public function isEmpty(array $livre): array
     {
-        $errors = [];
+        $emptyErrors = [];
         if (empty($livre['titre'])) {
-            $errors [] = 'Veuillez ajouter un titre';
-        } if (empty($livre['auteur'])) {
-            $errors [] = 'Veuillez rentrer un auteur';
-        } if (empty($livre['isbn'])) {
-            $errors [] = 'Veuillez rentrer un ISBN';
-        } if (empty($livre['localisation'])) {
-            $errors [] = 'Veuillez rentrer une localisation';
-        } if (!empty($livre['titre']) && strlen($livre['titre']) > 50) {
-            $errors [] = 'Votre titre est trop long';
-        } if (!empty($livre['auteur']) && strlen($livre['auteur']) > 50) {
-            $errors [] = 'Votre nom d\'auteur est trop long';
-        } if (!empty($livre['isbn']) && strlen($livre['isbn']) > 13) {
-            $errors [] = 'Votre ISBN est trop long';
-        } if (!empty($livre['localisation']) && strlen($livre['localisation']) > 100) {
-            $errors [] = 'La localisation est trop long';
-        } if (!empty($livre['genre']) && strlen($livre['genre']) > 50) {
-                $errors [] = 'Votre champs "genre" fait plus de 50 caractères';
+            $emptyErrors ['titre'] = 'Veuillez ajouter un titre';
         }
-
-        return $errors ?? [];
+        if (empty($livre['auteur'])) {
+            $emptyErrors ['auteur'] = 'Veuillez rentrer un auteur';
+        }
+        if (empty($livre['isbn'])) {
+            $emptyErrors ['isbn'] = 'Veuillez rentrer un ISBN';
+        }
+        if (empty($livre['localisation'])) {
+            $emptyErrors ['localisation'] = 'Veuillez rentrer une localisation';
+        }
+        return $emptyErrors;
+    }
+    public function isTooLong(array $livre): array
+    {
+        $tooLongErrors = [];
+        if (strlen($livre['titre']) > 50) {
+            $tooLongErrors ['titre'] = 'Votre titre est trop long';
+        }
+        if (strlen($livre['auteur']) > 50) {
+            $tooLongErrors ['auteur'] = 'Votre nom d\'auteur est trop long';
+        }
+        if (strlen($livre['isbn']) > 13) {
+            $tooLongErrors ['isbn'] = 'Votre ISBN est trop long';
+        }
+        if (strlen($livre['localisation']) > 100) {
+            $tooLongErrors ['localisation'] = 'La localisation est trop long';
+        }
+        if (!empty($livre['genre']) && strlen($livre['genre']) > 50) {
+            $tooLongErrors ['genre'] = 'Votre champs "genre" fait plus de 50 caractères';
+        }
+        return $tooLongErrors;
     }
 
     /**
@@ -170,7 +187,7 @@ class LivreController extends AbstractController
      *
      * @param int $id
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         $livreManager = new LivreManager();
         $livreManager->delete($id);
