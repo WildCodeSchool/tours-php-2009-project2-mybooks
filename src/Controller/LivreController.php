@@ -142,6 +142,18 @@ class LivreController extends AbstractController
             'emptyErrors' => $emptyErrors, 'tooLongErrors' => $tooLongErrors]);
     }
 
+    /**
+     * Handle item deletion
+     *
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+        $livreManager = new LivreManager();
+        $livreManager->delete($id);
+        header('Location:/livre/index');
+    }
+
     public function isEmpty(array $livre): array
     {
         $emptyErrors = [];
