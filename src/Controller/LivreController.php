@@ -29,6 +29,23 @@ class LivreController extends AbstractController
     }
 
     /**
+     * Display item informations specified by $id
+     *
+     * @param int $id
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function show(int $id)
+    {
+        $livreManager = new LivreManager();
+        $livre = $livreManager->selectOneById($id);
+
+        return $this->twig->render('livre/show.html.twig', ['livre' => $livre]);
+    }
+
+    /**
      * Display item creation page
      *
      * @return string
@@ -66,6 +83,63 @@ class LivreController extends AbstractController
         }
         return $this->twig->render('livre/add.html.twig', ['emptyErrors' => $emptyErrors,
             'tooLongErrors' => $tooLongErrors]);
+    }
+
+    /**
+     * Display item edition page specified by $id
+     *
+     * @param int $id
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function edit(int $id): string
+    {
+        $emptyErrors = [];
+        $tooLongErrors = [];
+        $livreManager = new LivreManager();
+        $livre = $livreManager->selectOneById($id);
+
+        $dateParutionArray = explode('-', $livre['parution']);
+        $anneeParution = $dateParutionArray[0];
+        $moisParution = $dateParutionArray[1];
+        $jourParution = $dateParutionArray[2];
+
+        $dateLectureArray = explode('-', $livre['lecture']);
+        $anneeLecture = $dateLectureArray[0];
+        $moisLecture = $dateLectureArray[1];
+        $jourLecture = $dateLectureArray[2];
+
+        if (!isset($_POST['lu'])) {
+            $_POST['lu'] = '0';
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $livre = [
+                'id' => $_POST['id'],
+                'titre' => $_POST['titre'],
+                'auteur' => $_POST['auteur'],
+                'parution' => $_POST['anneeParution'] . '-' . $_POST['moisParution'] . '-' . $_POST['jourParution'],
+                'lecture' => $_POST['anneeLecture'] . '-' . $_POST['moisLecture'] . '-' . $_POST['jourLecture'],
+                'lu' => $_POST['lu'],
+                'isbn' => $_POST['isbn'],
+                'localisation' => $_POST['localisation'],
+                'genre' => $_POST['genre'],
+                'description' => $_POST['description'],
+
+            ];
+            $emptyErrors = $this->isEmpty($livre);
+            $tooLongErrors = $this->isTooLong($livre);
+            if (empty($emptyErrors) && empty($tooLongErrors)) {
+                $livreManager->update($livre);
+                header('Location:/livre/show/' . $id);
+            }
+        }
+        return $this->twig->render('livre/edit.html.twig', ['livre' => $livre,
+            'anneeParution' => $anneeParution, 'moisParution' => $moisParution, 'jourParution' => $jourParution,
+            'anneeLecture' => $anneeLecture, 'moisLecture' => $moisLecture, 'jourLecture' => $jourLecture,
+            'emptyErrors' => $emptyErrors, 'tooLongErrors' => $tooLongErrors]);
     }
 
     public function isEmpty(array $livre): array
