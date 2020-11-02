@@ -1,7 +1,0 @@
-{% extends 'layout.html.twig' %}
-
-{% block content %}
-    <h1>Modifications {{ livre.title }}</h1>
-    {% include 'Livre/_form.html.twig' %}
-    <a href="/Livre/show/{{ livre.id }}">Back</a>
-{% endblock %}

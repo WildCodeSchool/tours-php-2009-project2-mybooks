@@ -26,7 +26,7 @@
 
     <input type="checkbox" id="lu" name="lu" value="1" {% if livre.lu == 1 %}checked{% endif %}>
 
-    <label for="lecture">Le</label>
+    <label for="lecture">Le </label>
     <input type="text" id="lecture" name="lecture" value="{{ livre.lecture }}"></br>
 
     <label for="localisation">Localisation</label>
@@ -34,5 +34,7 @@
 
     <label for="description">Description</label></br>
     <textarea class="inputPosition" id="description" name="description" value="{{ livre.description }}" ></textarea></br>
-    <input type="submit" id="submit" value="Ajouter">
+    <div class="submit">
+        <input type="submit" id="submit" value="Valider">
+    </div>
 </form>

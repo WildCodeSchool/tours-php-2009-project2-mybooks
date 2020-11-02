@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <main>
+        <img src="/assets/images/presentation.jpg" class="presentationImage">
+       
+        <h1 id="titleLibrary">Ma bibliothèque <a href="/livre/add"><img src="/assets/images/iconeplus.png" class="plusLittleImage"></a></h1>
+        <hr class="hrLibrary">
+
+        <form method="GET">
+            <input type="search" placeholder="Rechercher..."/>
+            <button>rechercher</button>        
+        </form>
+
+        <div class="myLibrary">
+            <ul>
+                {% for livre in livres %}
+                    <li><a href="/livre/show/{{ livre.id }}"><p class="indexBookTitle">{{ livre.titre }}<img src="/assets/images/livrelu.png" class="readBook"></p>{{ livre.lu }}</p><p class="indexBookAuthor">{{ livre.auteur }}</p><p class="indexBookLocalisation">Localisation : {{ livre.localisation }}</p></a></li>
+                {% else %}
+                    <li>Aucun livre à afficher!</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class ="alignPlusImage">
+            <a href="/livre/add"><img src="/assets/images/iconeplus.png" class="plusImage"></a>
+        </div>
+
+    </main>
+
+{% endblock %}

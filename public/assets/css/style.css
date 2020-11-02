@@ -3,9 +3,22 @@
 :root{
     --main-background-color : #EFEFEF;
     --second-background-color: #DEDEDE;
+    --footer-background-color: #F0F0F0;
+
+    --pen-width: 8vw;
+    --trash-width: 8vw;
+    --cross-width: 8vw;
+    --pen-width-desktop: 3vw;
+    --trash-width-desktop: 3vw;
+    --cross-width-desktop: 3vw;
 }
 
+
 /*All pages*/
+
+html {
+    height: 100%;
+}
 
 body{
     background-color: var(--main-color);
@@ -15,64 +28,92 @@ body{
     display: flex;
 }
 
-.titre{
-    flex: 5%;
-    font-size: 2.5rem;
+.title{
+    justify-content: flex-end;
+    font-size: 12vw;
 }
 
-.titre a{
+.title a{
     text-decoration: none;
     color: black;
 
 }
 
 .user{
-    justify-content: flex-end;
-
+    padding-left: 30%; 
 }
 
 .userImage{
 
-    width: 20px;
+    width: 3vw;
 }
 
-/*index*/
+/*Index*/
 
 .presentationImage{
     width : 100%;
-    border-radius: 10px;
-    margin-top: 30px;
+    border-radius: 5%;
+}
+
+#titleLibrary{
+    font-size: 7vw;
 }
 
 h1{
     text-align:center;
 }
 
+.plusLittleImage{
+    width: 7vw;
+    padding-left: 10%;
+}
+
+
 .hrLibrary{
     width: 80%;
 }
 
-.myLibrary{
-    background-color: var(--second-background-color);
-    border-radius: 10px;
+.myLibrary ul {
+    padding:0;
 }
 
 .myLibrary ul li{
     list-style-type: none;
+    background-color: var(--second-background-color);
+    border-radius: 10px;
+    margin : 2%;
+    padding: 0.1% 0% 0.5% 3%;
 }
-
 
 .myLibrary ul li a{
     text-decoration: none;
     color: black;
-    margin-bottom: 50px;
+}
+
+.indexBookTitle{
+    font-size: 6vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.indexBookAuthor{
+    font-size:4vw;
+}
+
+.readBook {
+    width: 8%;
+}
+
+
+.indexBookLocalisation{
+    font-size:4vw;
 }
 
 
 
 .plusImage{
-    width:1.4em;
-    height: auto;
+    width: 15vw;
+
 }
 
 .alignPlusImage{
@@ -83,21 +124,50 @@ h1{
 /* Form*/
 
 
+.pen{
+    width: var(--pen-width);
+    padding-right: 20px;
+}
+
+.trash{
+    width: var(--trash-width);
+}
+
+.cross{
+    width: var(--cross-width);
+}
+
+
+.addCrossSection{
+    display: flex;
+    justify-content: center;
+}
+
+#addTitle{
+    font-size: 5vw;
+}
+
+#addCross{
+    padding-left: 30vw;
+}
+
 .form{
-    margin: 8px;
-    padding: 8px;
+    margin: 5vw;
+    padding: 5vw;
     border-radius: 10px;
     background-color: var(--second-background-color);
 }
 
+label{
+    font-size: 5vw;
+}
 
 .inputPosition{
-    padding: 2px;
-    margin: 2px;
+    padding: 2vw;
+    margin: 2vw;
     display: flex;
     justify-content: center;
-    width: 20em;
-
+    width: 80%;
 }
 
 
@@ -113,18 +183,38 @@ h1{
 
 
 textarea{
-    height: 5em;
-    width: 20em;
+    height: 5vw;
+}
+
+.submit{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+#submit{
+    width: 15vw;
 }
 
 
-
 /*Edit*/
+
+
+.editCrossSection{
+    display: flex;
+    justify-content: center;
+}
+
+#editCross{
+    padding-left: 30vw;
+}
+
 
 .bookDescription{
     border-radius: 10px;
     padding: 10px;
     background-color: var(--second-background-color);
+    padding-left: 5vw;
 }
 
 #hrDescription{
@@ -132,26 +222,13 @@ textarea{
     width: 50%;
 }
 
-
 .hightIcons{
     display: flex;
     justify-content: flex-end;
-    margin-top: 60px;
+
     padding-right: 10px;
 }
 
-.pen{
-    width: 25px;
-    padding-right: 20px;
-}
-
-.trash{
-    width: 25px;
-}
-
-.cross{
-    width: 30px;
-}
 
 .bottomIcon{
     display: flex;
@@ -161,16 +238,54 @@ textarea{
 }
 
 
-
 /*Footer*/
 
-footer {    
-    position: relative;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-    text-align: center;
+.footer {
 
+    text-align: center;
+    margin-top: 5%;
 }
 
+
+@media screen and (min-width : 768px) {
+
+    /*Index*/
+
+    .plusImage{
+        width: 8vw;
+    }
+
+    .indexBookTitle{
+        font-size: 3vw;
+    }
+
+    .indexBookAuthor{
+        font-size:2vw;
+    }
+    
+    .indexBookLocalisation{
+        font-size:1.5vw;
+    }
+
+
+    /*Form*/
+
+    .pen{
+        width: var(--pen-width-desktop);
+        padding-right: 20px;
+    }
+    
+    .trash{
+        width: var(--trash-width-desktop);
+    }
+    
+    .cross{
+        width: var(--cross-width-desktop);
+    }
+
+    /*Edit*/
+
+    .bookDescription{
+        margin: 5%;
+    }
+}

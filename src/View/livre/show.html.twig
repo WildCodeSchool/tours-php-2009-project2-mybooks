@@ -5,8 +5,7 @@
 
     <main class"mainShow">
         <section class="hightIcons">
-            <a href="/Livre/edit/{{ livre.id }}"><img src="/assets/images/pen.png" class="pen"></a>
-            <a href="/Livre/index"><img src="/assets/images/cross.png" class="cross"></a>
+            <a href="/livre/index"><img src="/assets/images/cross.png" class="cross"></a>
         </section>
 
         <section class="bookDescription">
@@ -24,10 +23,10 @@
         </section>
 
         <section class="bottomIcon">
-            <a href="/Livre/delete/{{livre.id}}"><img src="/assets/images/trash.png" class="trash"></a>
+            <a href="/livre/edit/{{ livre.id }}"><img src="/assets/images/pen.png" class="pen"></a>
+            <a href="/livre/delete/{{livre.id}}"><img src="/assets/images/trash.png" class="trash"></a>
         </section>
     </main>
-
 
 {% endblock %}
 

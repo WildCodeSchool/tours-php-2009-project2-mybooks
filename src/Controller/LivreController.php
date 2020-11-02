@@ -33,7 +33,7 @@ class LivreController extends AbstractController
         $itemManager = new LivreManager();
         $livres = $itemManager->selectAll();
 
-        return $this->twig->render('Livre/index.html.twig', ['livres' => $livres]);
+        return $this->twig->render('livre/index.html.twig', ['livres' => $livres]);
     }
 
 
@@ -51,7 +51,7 @@ class LivreController extends AbstractController
         $itemManager = new LivreManager();
         $livre = $itemManager->selectOneById($id);
 
-        return $this->twig->render('Livre/show.html.twig', ['livre' => $livre]);
+        return $this->twig->render('livre/show.html.twig', ['livre' => $livre]);
     }
 
 
@@ -77,7 +77,7 @@ class LivreController extends AbstractController
             $itemManager->update($livre);
         }
 
-        return $this->twig->render('Livre/edit.html.twig', ['livre' => $livre]);
+        return $this->twig->render('livre/edit.html.twig', ['livre' => $livre]);
     }
 
 
@@ -114,10 +114,10 @@ class LivreController extends AbstractController
             ];
 
             $id = $itemManager->insert($livre);
-            header('Location:/Livre/show/' . $id);
+            header('Location:/livre/show/' . $id);
         }
 
-        return $this->twig->render('Livre/add.html.twig');
+        return $this->twig->render('livre/add.html.twig');
     }
 
 
@@ -130,6 +130,6 @@ class LivreController extends AbstractController
     {
         $itemManager = new LivreManager();
         $itemManager->delete($id);
-        header('Location:/Livre/index');
+        header('Location:/livre/index');
     }
 }

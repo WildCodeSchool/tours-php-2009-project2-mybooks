@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="addCrossSection">
+        <h1 id="addTitle">Ajouter un livre</h1>
+        <a href="/livre/index" id="addCross"><img src="/assets/images/cross.png" class="cross" ></a>
+    </section>
+
+    {% include 'livre/_form.html.twig' %}
+
+{% endblock %}
