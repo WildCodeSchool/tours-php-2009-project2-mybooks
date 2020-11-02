@@ -1,0 +1,45 @@
+<form action="" method="post">
+
+    <input type="hidden" value="{{ livre.id }}" name="id">
+
+    {{ emptyErrors.titre }}{{ tooLongErrors.titre }}</br>
+    <label for="titre">Titre</label>
+    <input type="text" id="titre" name="titre" value="{{ livre.titre }}"></br>
+
+    {{ emptyErrors.auteur }}{{ tooLongErrors.auteur}}</br>
+    <label for="auteur">Auteur</label>
+    <input type="text" id="auteur" name="auteur" value="{{ livre.auteur }}"></br>
+
+    <label for="jourParution">Date de Parution</label>
+    <input type="number" id="jourParution" name="jourParution" value="{{ jourParution }}" min=1 max=31 >
+    <label for="moisParution">/</label>
+    <input type="number" id="moisParution" name="moisParution" value="{{ moisParution }}" min=1 max=12 >
+    <label for="anneeParution">/</label>
+    <input type="number" id="anneeParution" name="anneeParution" value="{{ anneeParution }}">
+
+    {{ tooLongErrors.genre }}</br>
+    <label for="genre">Genre</label>
+    <input type="text" id="genre" name="genre" value="{{ livre.genre }}"></br>
+
+    {{ emptyErrors.isbn }}{{ tooLongErrors.isbn }}</br>
+    <label for="isbn">ISBN</label>
+    <input type="text" id="isbn" name="isbn" value="{{ livre.isbn }}" ></br>
+
+    <label for="lu">Lu</label>
+    <input type="checkbox" id="lu" name="lu" value="1" {% if livre.lu == 1 %} checked {% endif %}>
+
+    <label for="jourLecture">Le</label>
+    <input type="number" id="jourLecture" name="jourLecture" value="{{ jourLecture }}" min=1 max=31>
+    <label for="moisLecture">/</label>
+    <input type="number" id="moisLecture" name="moisLecture" value="{{ moisLecture }}" min=1 max=12 >
+    <label for="anneeLecture">/</label>
+    <input type="number" id="anneeLecture" name="anneeLecture" value="{{ anneeLecture }}"></br>
+
+    {{ emptyErrors.localisation }}{{ tooLongErrors.localisation }}</br>
+    <label for="localisation">Localisation</label>
+    <input type="text" id="localisation" name="localisation" value="{{ livre.localisation }}"></br>
+
+    <label for="description">Description</label></br>
+    <textarea id="description" name="description">{{ livre.description }}</textarea></br>
+    <input type="submit" value="Ajouter">
+</form>
