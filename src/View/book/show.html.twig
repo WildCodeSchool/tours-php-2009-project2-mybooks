@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>book {{ book.title }}</h1>
+    <p>{{ book.id }}. {{ book.title }} - {{ book.author }} -
+{{ book.releaseDate }} - {{ book.hasBeenReadOn }} - {{ book.hasBeenRead }} - {{ book.isbn }} -
+{{ book.localization }} - {{ book.genre }} - {{ book.description }}</p>
+    <a href="/book/edit/{{ book.id }}">Modifier</a>
+    <a href="/book/delete/{{ book.id }}">Supprimer</a>
+    <a href="/">Retour</a>
+{% endblock %}
