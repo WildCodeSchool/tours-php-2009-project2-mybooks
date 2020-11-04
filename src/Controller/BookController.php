@@ -12,7 +12,7 @@ use App\Model\Book;
 class BookController extends AbstractController
 {
     /**
-     * Display item listing
+     * Display book listing
      *
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -28,7 +28,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * Display item informations specified by $id
+     * Display book informations specified by $id
      *
      * @param int $id
      * @return string
