@@ -146,7 +146,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getReleaseDate(): string
+    public function getReleaseDate(): ?string
     {
         return $this->releaseDate;
     }
@@ -155,8 +155,11 @@ class Book extends BookManager
      * @param string $releaseDate
      * @return Book
      */
-    public function setReleaseDate(string $releaseDate): Book
+    public function setReleaseDate(?string $releaseDate): Book
     {
+        if ($releaseDate == "") {
+            $releaseDate = null;
+        }
         $this->releaseDate = $releaseDate;
         return $this;
     }
@@ -206,7 +209,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getHasBeenReadOn(): string
+    public function getHasBeenReadOn(): ?string
     {
         return $this->hasBeenReadOn;
     }
@@ -215,8 +218,11 @@ class Book extends BookManager
      * @param string $hasBeenReadOn
      * @return Book
      */
-    public function setHasBeenReadOn(string $hasBeenReadOn): Book
+    public function setHasBeenReadOn(?string $hasBeenReadOn): Book
     {
+        if ($hasBeenReadOn == "") {
+            $hasBeenReadOn = null;
+        }
         $this->hasBeenReadOn = $hasBeenReadOn;
         return $this;
     }
