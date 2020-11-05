@@ -64,7 +64,6 @@ class BookManager extends AbstractManager
         if ($statement == false) {
             return self::DATABASE_ERROR;
         }
-        $statement->bindValue('id', $book->getId(), \PDO::PARAM_INT);
         if (
             $statement->execute([
             "id" => $book->getId(),
