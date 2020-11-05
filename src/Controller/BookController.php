@@ -73,6 +73,7 @@ class BookController extends AbstractController
             if ($book->isValid()) {
                 $id = $bookManager->insert($book);
                 header('Location:/book/show/' . $id);
+                return "";
             } else {
                 $errors = $book->getErrors();
             }
