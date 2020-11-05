@@ -3,6 +3,7 @@
 /**
  * The book table manager
  */
+
 namespace App\Model;
 
 class BookManager extends AbstractManager
@@ -52,5 +53,33 @@ class BookManager extends AbstractManager
             return intval($this->pdo->lastInsertId());
         }
         return self::DATABASE_ERROR;
+    }
+
+    public function update(Book $book)
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
+        " SET `title` = :title, `author` = :author ,
+        `releaseDate` = :releaseDate,`hasBeenReadOn` = :hasBeenReadOn, `hasBeenRead` = :hasBeenRead, `isbn` = :isbn, 
+        `localization` = :localization, `genre` = :genre, `description` = :description WHERE id=:id");
+        if ($statement == false) {
+            return self::DATABASE_ERROR;
+        }
+        $statement->bindValue('id', $book->getId(), \PDO::PARAM_INT);
+        if (
+            $statement->execute([
+            "id" => $book->getId(),
+            "title" => $book->getTitle(),
+            "author" => $book->getAuthor(),
+            "releaseDate" => $book->getReleaseDate(),
+            "hasBeenReadOn" => $book->getHasBeenReadOn(),
+            "isbn" => $book->getIsbn(),
+            "localization" => $book->getLocalization(),
+            "genre" => $book->getGenre(),
+            "description" => $book->getDescription(),
+            "hasBeenRead" => $book->gethasBeenRead()
+            ]) === false
+        ) {
+            return self::DATABASE_ERROR;
+        }
     }
 }
