@@ -103,8 +103,9 @@ class BookController extends AbstractController
             $book->setIsbn($_POST['isbn']);
             $book->setHasBeenReadOn($_POST['hasBeenReadOn']);
             if ($book->isValid()) {
-                $id = $bookManager->update($book);
+                $bookManager->update($book);
                 header('Location:/book/show/' . $id);
+                return "";
             } else {
                 $errors = $book->getErrors();
             }
