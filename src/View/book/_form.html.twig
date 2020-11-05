@@ -25,7 +25,7 @@
     <input type="checkbox" id="hasBeenRead" name="hasBeenRead" value="1" {% if book_array.hasBeenRead == "Oui" %} checked {% endif %}>
 
     <label for="hasBeenReadOn">Le</label>
-    <input type="date" id="hasBeenReadOn" name="hasBeenReadOn" value={% if book_array.hasBeenReadOn == "" %}{{ book_array.hasBeenReadOn is null }}{% else %}
+    <input type="date" id="hasBeenReadOn" name="hasBeenReadOn" value={% if book_array.hasBeenReadOn == "" %}{{ book_array.hasBeenReadOn }}{% else %}
     {{ book_array.hasBeenReadOn }}{% endif %} max="{{today}}" ></br>
 
     <label for="localization">Localisation</label>
