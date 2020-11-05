@@ -147,6 +147,9 @@ class Book extends BookManager
      */
     public function setReleaseDate(string $releaseDate): Book
     {
+        if ($releaseDate == "") {
+            $releaseDate = null;
+        }
         $this->releaseDate = $releaseDate;
         return $this;
     }
@@ -207,6 +210,9 @@ class Book extends BookManager
      */
     public function setHasBeenReadOn(string $hasBeenReadOn): Book
     {
+        if ($hasBeenReadOn == "") {
+            $hasBeenReadOn = null;
+        }
         $this->hasBeenReadOn = $hasBeenReadOn;
         return $this;
     }
