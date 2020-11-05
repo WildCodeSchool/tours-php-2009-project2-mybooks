@@ -3,7 +3,6 @@
 /**
  * The book table manager
  */
-
 namespace App\Model;
 
 class BookManager extends AbstractManager
