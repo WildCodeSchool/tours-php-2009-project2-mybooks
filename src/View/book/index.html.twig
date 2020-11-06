@@ -1,14 +1,36 @@
+
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Livres</h1>
-    <div class="img"></div>
-    <ul>
-        {% for book in books %}
-            <li><a href="/book/show/{{ book.id }}">{{ book.id }}. {{ book.title }} - {{ book.author }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/book/add">Ajouter</a>
+    <main>
+        <img src="/assets/images/presentation.jpg" class="presentationImage">
+        <div class="containerIndex">
+            <h1 class="titleLibrary">Ma bibliothèque</h1><a href="/book/add"><img class="plusLittleImage" src="/assets/images/iconeplus.png"></a></h1>
+        </div>
+        <hr class="hrLibrary">
+        <form method="GET">
+            <input type="search" placeholder="Rechercher..."/>
+            <button>rechercher</button>
+        </form>
+        <div class="myLibrary">
+            <ul>
+                {% for book in books %}
+                    <li><a href="/book/show/{{ book.id }}"><p class="indexBookTitle">{{ book.title }}
+                        {% if book.hasBeenRead == "Oui" %}
+                            <img src="/assets/images/booklu.png" class="readBook">
+                        {% else %}
+                            <img src="/assets/images/booknonlu.png" class="readBook">
+                        {% endif %}
+                            <p class="indexBookAuthor">{{ book.author }}</p><p class="indexBookLocalisation">
+                            Localisation : {{ book.localization }}</p></a></li>
+                        {% else %}
+                    <li>Aucun book à afficher!</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class ="alignPlusImage">
+            <a href="/book/add"><img src="/assets/images/iconeplus.png" class="plusImage"></a>
+        </div>
+    </main>
+
 {% endblock %}
