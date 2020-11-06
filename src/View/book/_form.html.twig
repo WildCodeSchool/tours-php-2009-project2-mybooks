@@ -1,0 +1,37 @@
+<form action="" method="post">
+
+    <input type="hidden" value="{{ book.id }}" name="id">
+
+    <label for="title">Titre</label>
+    </br>{{ errors.title }}</br>
+    <input type="text" id="title" name="title" value="{{ book.title }}"></br>
+
+    <label for="author">Auteur</label>
+    </br>{{ errors.author }}</br>
+    <input type="text" id="author" name="author" value="{{ book.author }}"></br>
+
+    <label for="releaseDate">Date de Parution</label>
+    <input type="date" id="releaseDate" name="releaseDate" value={% if book.releaseDate == "" %}{% else %}
+    {{ book.releaseDate }}{% endif %}max="{{today}}"></br>
+
+    <label for="genre">Genre</label>
+    <input type="text" id="genre" name="genre" value="{{ book.genre }}"></br>
+
+    <label for="isbn">ISBN</label>
+    </br>{{ errors.isbn }}</br>
+    <input type="text" id="isbn" name="isbn" value="{{ book.isbn }}" ></br>
+
+    <label for="hasBeenRead">Lu</label>
+    <input type="checkbox" id="hasBeenRead" name="hasBeenRead" value="1" {% if book.hasBeenRead == "1" %} checked {% endif %}>
+
+    <label for="hasBeenReadOn">Le</label>
+    <input type="date" id="hasBeenReadOn" name="hasBeenReadOn" value={% if book.hasBeenReadOn == "" %}{% else %}
+    {{ book.hasBeenReadOn }}{% endif %} max="{{today}}" ></br>
+
+    <label for="localization">Localisation</label>
+    </br>{{ errors.localization }}</br>
+    <input type="text" id="localization" name="localization" value="{{ book.localization }}"></br>
+
+    <label for="description">Description</label></br>
+    <textarea id="description" name="description">{{ book.description }}</textarea></br>
+    <input type="submit" value="Ajouter">
