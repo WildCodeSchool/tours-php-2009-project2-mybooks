@@ -1,11 +1,55 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>book {{ book.title }}</h1>
-    <p>{{ book.id }}. {{ book.title }} - {{ book.author }} -
-{{ book.releaseDate }} - {{ book.hasBeenReadOn }} - {{ book.hasBeenRead }} - {{ book.isbn }} -
-{{ book.localization }} - {{ book.genre }} - {{ book.description }}</p>
-    <a href="/book/edit/{{ book.id }}">Modifier</a>
-    <a href="/book/delete/{{ book.id }}">Supprimer</a>
-    <a href="/">Retour</a>
+
+
+    <main class="mainShow">
+    <section class="hightIcons">
+        <a href="/"><img src="/assets/images/cross.png" class="cross"></a>
+    </section>
+
+    <section class="bookDescription">
+        <h1>{{ book.title }}</h1>
+        <hr id="hrDescription">
+
+        Auteur : {{ book.author }}</br>
+        Date de parution : {{ book.releaseDate }}</br>
+        Genre : {{ book.genre }}</br>
+        ISBN : {{ book.isbn }}</br>
+        Lu : {{ book.hasBeenRead }}</br>
+        Date de lecture : {{ book.hasBeenReadOn }}</br>
+        Localisation : {{ book.localization }}</br>
+        Description : {{ book.description }}</br>
+    </section>
+
+{# Delete Confirmation #}
+    <section class="bottomIcon">
+        <a href="/book/edit/{{ book.id }}"><img src="/assets/images/pen.png" class="pen"></a>
+        <a onclick="document.getElementById('id01').style.display='block'"><img src="/assets/images/trash.png" class="trash"></a>
+        
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content">
+                <div class="container">
+                    <h1>Supprimer</h1>
+                    <p>Etes-vous sûr de vouloir supprimer ce livre ?</p>
+
+                    <div class="clearfix">
+                        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="cancelbtn">Annuler</button>
+                        <button onclick="window.location.href='/book/delete/{{book.id}}'" type="button" class="deletebtn">Supprimer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        var modal = document.getElementById('id01');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    </main>
+
 {% endblock %}

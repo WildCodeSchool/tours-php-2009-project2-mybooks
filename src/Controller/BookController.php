@@ -112,4 +112,11 @@ class BookController extends AbstractController
         }
         return $this->twig->render('book/edit.html.twig', ['book_array' => $bookArray, 'errors' => $errors]);
     }
+
+    public function delete($id)
+    {
+        $bookManager = new BookManager();
+        $bookManager->delete($id);
+        header('Location:/');
+    }
 }
