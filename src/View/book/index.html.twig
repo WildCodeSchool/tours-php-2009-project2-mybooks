@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Livres</h1>
+    <div class="img"></div>
+    <ul>
+        {% for book in books %}
+            <li><a href="/book/show/{{ book.id }}">{{ book.id }}. {{ book.title }} - {{ book.author }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+    <a href="/book/add">Ajouter</a>
+{% endblock %}
