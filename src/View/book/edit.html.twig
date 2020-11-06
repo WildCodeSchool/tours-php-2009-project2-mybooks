@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="editCrossSection">
+        <h1 id="editTitle">Modifications</h1>
+        <a href="/book/show/{{ book_array.id }}" id="editCross"><img src="/assets/images/cross.png" class="cross"></a>
+    </section>
+
+    {% include 'book/_form.html.twig' %}
+{% endblock %}

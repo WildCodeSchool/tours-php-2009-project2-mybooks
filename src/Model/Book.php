@@ -26,6 +26,16 @@ class Book extends BookManager
     }
 
     /**
+     * @param int $id
+     * @return Book
+     */
+    public function setId(int $id): Book
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getTitle(): string
