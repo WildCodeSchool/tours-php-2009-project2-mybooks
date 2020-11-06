@@ -4,17 +4,17 @@ namespace App\Model;
 
 class Book extends BookManager
 {
-    private int $id;
-    private string $title;
-    private string $author;
-    private string $genre;
-    private string $localization;
-    private string $hasBeenRead;
-    private string $releaseDate;
-    private string $description;
-    private string $isbn;
-    private string $hasBeenReadOn;
-    private array $errors;
+    private $id;
+    private $title;
+    private $author;
+    private $genre;
+    private $localization;
+    private $hasBeenRead;
+    private $releaseDate;
+    private $description;
+    private $isbn;
+    private $hasBeenReadOn;
+    private $errors;
 
     /**
      * @return int
