@@ -20,9 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `mybooks`
 --
-CREATE DATABASE mybooks;
 -- --------------------------------------------------------
-USE mybooks;
 --
 -- Structure de la table `book`
 --
