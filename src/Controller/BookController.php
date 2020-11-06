@@ -80,4 +80,36 @@ class BookController extends AbstractController
         }
         return $this->twig->render('book/add.html.twig', ["today" => date('Y-m-d'), 'errors' => $errors]);
     }
+
+    public function edit(int $id)
+    {
+        $errors = [];
+        $bookManager = new BookManager();
+        $bookArray = $bookManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $read = 'Oui';
+            if (!isset($_POST['hasBeenRead'])) {
+                $read = 'Non';
+            }
+            $book = new Book();
+            $book->setId($_POST['id']);
+            $book->setTitle($_POST['title']);
+            $book->setAuthor($_POST['author']);
+            $book->setGenre($_POST['genre']);
+            $book->setLocalization($_POST['localization']);
+            $book->setHasBeenRead($read);
+            $book->setReleaseDate($_POST['releaseDate']);
+            $book->setDescription($_POST['description']);
+            $book->setIsbn($_POST['isbn']);
+            $book->setHasBeenReadOn($_POST['hasBeenReadOn']);
+            if ($book->isValid()) {
+                $bookManager->update($book);
+                header('Location:/book/show/' . $id);
+                return "";
+            } else {
+                $errors = $book->getErrors();
+            }
+        }
+        return $this->twig->render('book/edit.html.twig', ['book_array' => $bookArray, 'errors' => $errors]);
+    }
 }

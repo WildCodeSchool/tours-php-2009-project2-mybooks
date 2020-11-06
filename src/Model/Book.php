@@ -17,12 +17,22 @@ class Book extends BookManager
     private $errors;
 
     /**
-     * @return int
+     * @return string
      */
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return Book
+     */
+    public function setId(string $id): Book
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
