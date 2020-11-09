@@ -83,7 +83,7 @@ class BookManager extends AbstractManager
     }
 
     /**
-     * @return mixed
+     * @return bool|int
      */
     public function delete($id)
     {
