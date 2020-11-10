@@ -18,7 +18,7 @@
     <input class="inputPosition" type="text" id="genre" name="genre" value="{{ book_array.genre }}"><br>
 
     <label for="isbn">ISBN</label>
-    </br>{{ errors.isbn }}<br>
+    <br>{{ errors.isbn }}<br>
     <input class="inputPosition" type="text" id="isbn" name="isbn" value="{{ book_array.isbn }}" ><br>
 
     <label for="hasBeenRead">Lu</label>
@@ -29,7 +29,7 @@
     {{ book_array.hasBeenReadOn }}{% endif %} max="{{today}}" ><br>
 
     <label for="localization">Localisation</label>
-    </br>{{ errors.localization }}<br>
+    <br>{{ errors.localization }}<br>
     <input class="inputPosition" type="text" id="localization" name="localization" value="{{ book_array.localization }}"><br>
 
     <label for="description">Description</label><br>
