@@ -23,13 +23,16 @@ class BookController extends AbstractController
     {
         $bookManager = new BookManager();
 
-        if ($page <= 0){
+        if ($page <= 0) {
             $page = 1;
         }
 
         $books = $bookManager->selectByTenPerPage($page);
 
-        return $this->twig->render('book/index.html.twig', ['books' => $books, 'previousPage' => $page-1, 'nextPage' => $page+1]);
+        return $this->twig->render(
+            'book/index.html.twig',
+            ['books' => $books, 'previousPage' => $page - 1, 'nextPage' => $page + 1]
+        );
     }
 
     /**
@@ -124,6 +127,4 @@ class BookController extends AbstractController
         $bookManager->delete($id);
         header('Location:/');
     }
-
-    
 }
