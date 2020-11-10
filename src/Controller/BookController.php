@@ -22,8 +22,20 @@ class BookController extends AbstractController
     public function index(): string
     {
         $bookManager = new BookManager();
-        $books = $bookManager->selectAll();
-
+        $books = [];
+        if (isset($_GET['userSearch']) && !empty($_GET['userSearch'])) {
+            if (
+                $_GET['dataField'] == 'title' ||
+                $_GET['dataField'] == 'author' ||
+                $_GET['dataField'] == 'localization' ||
+                $_GET['dataField'] == 'genre' ||
+                $_GET['dataField'] == 'releaseDate'
+            ) {
+                $books = $bookManager->search($_GET['userSearch'], $_GET['dataField']);
+            }
+        } else {
+            $books = $bookManager->selectAll();
+        }
         return $this->twig->render('book/index.html.twig', ['books' => $books]);
     }
 

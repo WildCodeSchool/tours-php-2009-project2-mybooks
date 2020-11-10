@@ -9,6 +9,7 @@
     --pen-width: 8vw;
     --trash-width: 8vw;
     --cross-width: 8vw;
+    --magnifyingGlass-width: 4vw;
     --pen-width-desktop: 3vw;
     --trash-width-desktop: 3vw;
     --cross-width-desktop: 3vw;
@@ -69,6 +70,40 @@ body{
 {
     display: flex;
     font-size: 7vw;
+}
+
+/* Add searchBar*/
+
+.searchText{
+    font-size: 4vw;
+    padding-left: 10vw;
+}
+
+.searchBar{
+    display : flex;
+    justify-content: center;
+}
+
+#userSearch{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 35%;
+}
+
+#dataField{
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 20%;
+}
+
+/*Add magnifyingGlass*/
+
+.magnifyingGlassImage{
+    width: var(--magnifyingGlass-width);
+}
+
+h1{
+    text-align:center;
 }
 
 .plusLittleImage {

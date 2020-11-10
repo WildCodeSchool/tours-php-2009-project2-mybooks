@@ -6,6 +6,8 @@
 
 namespace App\Model;
 
+use PDO;
+
 class BookManager extends AbstractManager
 {
     public const TABLE = 'book';
@@ -98,5 +100,21 @@ class BookManager extends AbstractManager
             return self::DATABASE_ERROR;
         }
         return $statement->execute();
+    }
+
+    /**
+    * @param string $dataField
+    * @param string $userSearch
+    * @return array
+    */
+
+    public function search(string $userSearch, string $dataField): array
+    {
+        $statement = $this->pdo->prepare(" SELECT * FROM " . self::TABLE . " WHERE " . $dataField .
+        " LIKE :userSearch ");
+        $statement->bindValue(':userSearch', '%' . $userSearch . '%', PDO::PARAM_STR);
+
+        $statement->execute();
+        return $statement->fetchAll();
     }
 }
