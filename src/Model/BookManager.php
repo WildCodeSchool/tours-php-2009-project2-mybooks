@@ -82,6 +82,9 @@ class BookManager extends AbstractManager
         }
     }
 
+    /**
+     * @return bool|int
+     */
     public function delete($id)
     {
         $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");
@@ -91,6 +94,9 @@ class BookManager extends AbstractManager
         if ($statement->bindValue('id', $id, \PDO::PARAM_INT) == false) {
             return self::DATABASE_ERROR;
         }
-        $statement->execute();
+        if (($statement->execute()) == false) {
+            return self::DATABASE_ERROR;
+        }
+        return $statement->execute();
     }
 }
