@@ -4,34 +4,36 @@
 
 
     <main class="mainShow">
-    <section class="hightIcons">
-        <a href="/"><img src="/assets/images/cross.png" class="cross"></a>
-    </section>
+    <div class="hightIcons">
+        <a href="/"><img src="/assets/images/cross.png" class="cross" alt="image d'une croix pour quitter la page"></a>
+    </div>
 
     <section class="bookDescription">
-        <h1>{{ book.title }}</h1>
+        <h2>{{ book.title }}</h2>
         <hr id="hrDescription">
 
-        Auteur : {{ book.author }}</br>
-        Date de parution : {{ book.releaseDate }}</br>
-        Genre : {{ book.genre }}</br>
-        ISBN : {{ book.isbn }}</br>
-        Lu : {{ book.hasBeenRead }}</br>
-        Date de lecture : {{ book.hasBeenReadOn }}</br>
-        Localisation : {{ book.localization }}</br>
-        Description : {{ book.description }}</br>
+        <h3>Auteur : {{ book.author }}</h3>
+        <h3>Date de parution : {{ book.releaseDate }}</h3>
+        <h3>Genre : {{ book.genre }}</h3>
+        <h3>ISBN : {{ book.isbn }}</h3>
+        <h3>Lu : {{ book.hasBeenRead }}</h3>
+        <h3>Date de lecture : {{ book.hasBeenReadOn }}</h3>
+        <h3>Localisation : {{ book.localization }}</h3>
+        <h3>Description : {{ book.description }}</h3>
     </section>
 
 {# Delete Confirmation #}
     <section class="bottomIcon">
-        <a href="/book/edit/{{ book.id }}"><img src="/assets/images/pen.png" class="pen"></a>
-        <a onclick="document.getElementById('id01').style.display='block'"><img src="/assets/images/trash.png" class="trash"></a>
+        <a href="/book/edit/{{ book.id }}"><img src="/assets/images/pen.png" class="pen"
+        alt="image d'un crayon permettant d'éditer les informations d'un livre"></a>
+        <a onclick="document.getElementById('id01').style.display='block'"><img src="/assets/images/trash.png" class="trash"
+        alt="image d'une poubelle permettant de supprimer un livre"></a>
         
         <div id="id01" class="modal">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             <form class="modal-content">
                 <div class="container">
-                    <h1>Supprimer</h1>
+                    <h2>Supprimer</h2>
                     <p>Etes-vous sûr de vouloir supprimer ce livre ?</p>
 
                     <div class="clearfix">

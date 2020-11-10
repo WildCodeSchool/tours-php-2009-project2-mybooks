@@ -1,6 +1,311 @@
 
-img {
-    width: 2%;
+/*Colors*/
+
+:root{
+    --main-background-color : #EFEFEF;
+    --second-background-color: #DEDEDE;
+    --footer-background-color: #F0F0F0;
+
+    --pen-width: 8vw;
+    --trash-width: 8vw;
+    --cross-width: 8vw;
+    --pen-width-desktop: 3vw;
+    --trash-width-desktop: 3vw;
+    --cross-width-desktop: 3vw;
+}
+
+
+/*All pages*/
+
+html {
+    height: 100%;
+}
+
+body{
+    background-color: var(--main-background-color);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 0;
+}
+
+.title a{
+    text-decoration: none;
+    color: black;
+}
+
+.user{
+    margin: 0;
+}
+
+.userImage{
+    width: 3vw;
+}
+
+/*Index*/
+
+.presentationImage{
+    display: none;
+}
+.containerIndex {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerIndex a {
+    margin: 0;
+    padding: 0;
+    width: 0;
+}
+
+.containerIndex h1
+{
+    display: flex;
+    font-size: 7vw;
+}
+
+.plusLittleImage {
+    display: flex;
+    width: 15px;
+    margin: 0 0 0 5px;
+}
+
+.hrLibrary{
+    width: 80%;
+}
+
+.myLibrary ul {
+    padding:0;
+}
+
+.myLibrary ul li{
+    list-style-type: none;
+    background-color: var(--second-background-color);
+    border-radius: 10px;
+    margin : 2%;
+    padding: 0.1% 0% 0.5% 3%;
+}
+
+.myLibrary ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.indexBookTitle{
+    font-size: 6vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.indexBookAuthor{
+    font-size:4vw;
+}
+
+.readBook {
+    height: 8%;
+    width: 8%;
+}
+
+
+.indexBookLocalisation{
+    font-size:4vw;
+}
+
+
+
+.plusImage{
+    width: 15vw;
+
+}
+
+.alignPlusImage{
+    text-align: center;
+}
+
+
+/* Form*/
+
+
+.pen{
+    width: var(--pen-width);
+    padding-right: 20px;
+}
+
+.trash{
+    width: var(--trash-width);
+}
+
+.cross{
+    width: var(--cross-width);
+}
+
+
+.addCrossSection{
+    display: flex;
+    justify-content: center;
+}
+
+#addTitle{
+    font-size: 5vw;
+}
+
+#addCross{
+    padding-left: 30vw;
+}
+
+.form{
+    margin: 5vw;
+    padding: 5vw;
+    border-radius: 10px;
+    background-color: var(--second-background-color);
+}
+
+label{
+    font-size: 5vw;
+}
+
+.inputPosition{
+    padding: 2vw;
+    margin: 2vw;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+.inputParution{
+    display: flex;
+    justify-content: center;
+    padding: 1vw 0 0 0;
+    margin: 1.5vw 0 0 0;
+}
+.inputParution > input {
+    width: 20%;
+}
+#lu{
+    padding: 2px;
+    margin-bottom: 15px;
+}
+
+#lecture{
+    padding: 2px;
+    margin-bottom: 15px;
+}
+
+
+textarea{
+    height: 5vw;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+}
+
+#submit{
+    display: flex;
+    padding: 10em;
+    justify-content: center;
+    width: 15vw;
+}
+
+
+/*Edit*/
+
+
+.editCrossSection{
+    display: flex;
+    justify-content: center;
+}
+
+#editCross{
+    padding-left: 30vw;
+}
+
+
+.bookDescription{
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--second-background-color);
+    padding-left: 5vw;
+}
+
+#hrDescription{
+    text-align: center;
+    width: 50%;
+}
+
+.hightIcons{
+    display: flex;
+    justify-content: flex-end;
+
+    padding-right: 10px;
+}
+
+
+.bottomIcon{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-right: 10px;
+}
+
+
+/*Footer*/
+
+.footer {
+
+    text-align: center;
+    margin-top: 5%;
+}
+
+
+@media screen and (min-width : 768px) {
+
+    /*Index*/
+
+    .plusImage{
+        width: 8vw;
+    }
+
+    .indexBookTitle{
+        font-size: 3vw;
+    }
+
+    .indexBookAuthor{
+        font-size:2vw;
+    }
+
+    .indexBookLocalisation{
+        font-size:1.5vw;
+    }
+
+
+    /*Form*/
+
+    .pen{
+        width: var(--pen-width-desktop);
+        padding-right: 20px;
+    }
+
+    .trash{
+        width: var(--trash-width-desktop);
+    }
+
+    .cross{
+        width: var(--cross-width-desktop);
+    }
+
+    /*Edit*/
+
+    .bookDescription{
+        margin: 5%;
+    }
 }
 
 /*Delete confimation*/
