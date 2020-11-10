@@ -5,7 +5,7 @@
 
     <main class="mainShow">
     <div class="hightIcons">
-        <a href="/"><img src="/assets/images/cross.png" class="cross" alt="image pour quitter la page"></a>
+        <a href="/"><img src="/assets/images/cross.png" class="cross" alt="image d'une croix pour quitter la page"></a>
     </div>
 
     <section class="bookDescription">
@@ -24,9 +24,10 @@
 
 {# Delete Confirmation #}
     <section class="bottomIcon">
-        <a href="/book/edit/{{ book.id }}"><img src="/assets/images/pen.png" class="pen" alt="image permettant d'éditer les informations d'un livre"></a>
+        <a href="/book/edit/{{ book.id }}"><img src="/assets/images/pen.png" class="pen"
+        alt="image d'un crayon permettant d'éditer les informations d'un livre"></a>
         <a onclick="document.getElementById('id01').style.display='block'"><img src="/assets/images/trash.png" class="trash"
-        alt="image permettant de supprimer un livre"></a>
+        alt="image d'une poubelle permettant de supprimer un livre"></a>
         
         <div id="id01" class="modal">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
