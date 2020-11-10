@@ -99,4 +99,16 @@ class BookManager extends AbstractManager
         }
         return $statement->execute();
     }
+
+    public function selectByTenPerPage(int $page)
+    {
+        // prepared request
+        $bookPerPage = 10;
+        $offset = 10 * ($page - 1);
+        $statement = $this->pdo->prepare('SELECT * FROM ' . self::TABLE . ' LIMIT :limit OFFSET :offset');
+        $statement->bindValue('limit', $bookPerPage, \PDO::PARAM_INT);
+        $statement->bindValue('offset', $offset, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }
