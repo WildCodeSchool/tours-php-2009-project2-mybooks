@@ -11,7 +11,7 @@
     <input class="inputPosition" type="text" id="author" name="author" value="{{ book_array.author }}"></br>
 
     <label for="releaseDate">Date de Parution</label>
-    <input class="inputPosition" type="date" id="releaseDate" name="releaseDate" value={% if book_array.releaseDate == "" %}{% else %}
+    <input class="inputPosition" type="date" id="releaseDate" name="releaseDate" value={% if book_array.releaseDate == "" %}""{% else %}
     {{ book_array.releaseDate }}{% endif %} max="{{today}}"></br>
 
     <label for="genre">Genre</label>
@@ -25,7 +25,7 @@
     <input type="checkbox" id="hasBeenRead" name="hasBeenRead" value="1" {% if book_array.hasBeenRead == "Oui" %} checked {% endif %}>
 
     <label for="hasBeenReadOn">Le</label>
-    <input class="inputPosition" type="date" id="hasBeenReadOn" name="hasBeenReadOn" value={% if book_array.hasBeenReadOn == "" %}{{ book_array.hasBeenReadOn }}{% else %}
+    <input class="inputPosition" type="date" id="hasBeenReadOn" name="hasBeenReadOn" value={% if book_array.hasBeenReadOn == "" %}""{% else %}
     {{ book_array.hasBeenReadOn }}{% endif %} max="{{today}}" ></br>
 
     <label for="localization">Localisation</label>
@@ -35,3 +35,4 @@
     <label for="description">Description</label></br>
     <textarea class="inputPosition" id="description" name="description">{{ book_array.description }}</textarea></br>
     <input type="submit" value="Ajouter">
+</form>
