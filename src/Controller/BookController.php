@@ -29,6 +29,7 @@ class BookController extends AbstractController
                 $_GET['dataField'] == 'author' ||
                 $_GET['dataField'] == 'localization' ||
                 $_GET['dataField'] == 'genre' ||
+                $_GET['dataField'] == 'isbn' ||
                 $_GET['dataField'] == 'releaseDate'
             ) {
                 $books = $bookManager->search($_GET['userSearch'], $_GET['dataField']);
