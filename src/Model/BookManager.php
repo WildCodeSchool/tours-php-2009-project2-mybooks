@@ -101,19 +101,26 @@ class BookManager extends AbstractManager
         }
         return $statement->execute();
     }
-
     /**
     * @param string $dataField
     * @param string $userSearch
-    * @return array
+    * @return array|int
     */
 
-    public function search(string $userSearch, string $dataField): array
+    public function search(string $userSearch, string $dataField)
     {
-        $statement = $this->pdo->prepare(" SELECT * FROM " . self::TABLE . " WHERE " . $dataField .
-        " LIKE :userSearch ");
-        $statement->bindValue(':userSearch', '%' . $userSearch . '%', PDO::PARAM_STR);
+        $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE " . $dataField .
+        " LIKE :userSearch");
+        if ($statement == false) {
+            return self::DATABASE_ERROR;
+        }
 
+        if ($statement->bindValue(':userSearch', '%' . $userSearch . '%', PDO::PARAM_STR) == false) {
+            return self::DATABASE_ERROR;
+        }
+        if (($statement->execute()) == false) {
+            return self::DATABASE_ERROR;
+        }
         $statement->execute();
         return $statement->fetchAll();
     }
