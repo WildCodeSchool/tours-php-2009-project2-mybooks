@@ -19,12 +19,20 @@ class BookController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index(): string
+    public function index(int $page): string
     {
         $bookManager = new BookManager();
-        $books = $bookManager->selectAll();
 
-        return $this->twig->render('book/index.html.twig', ['books' => $books]);
+        if ($page <= 0) {
+            $page = 1;
+        }
+
+        $books = $bookManager->selectByTenPerPage($page);
+
+        return $this->twig->render(
+            'book/index.html.twig',
+            ['books' => $books, 'previousPage' => $page - 1, 'nextPage' => $page + 1]
+        );
     }
 
     /**
