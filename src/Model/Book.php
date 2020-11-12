@@ -50,9 +50,9 @@ class Book extends BookManager
     public function setTitle(string $title): Book
     {
         if (empty($title)) {
-            $this->errors ['title'] = 'Veuillez ajouter un titre';
+            $this->errors['title'] = 'Veuillez ajouter un titre';
         } elseif (strlen($title) > 50) {
-            $this->errors ['title'] = 'Votre champ "titre" est trop long';
+            $this->errors['title'] = 'Votre champ "titre" est trop long';
         } else {
             $this->title = $title;
         }
@@ -74,9 +74,9 @@ class Book extends BookManager
     public function setAuthor(string $author): Book
     {
         if (empty($author)) {
-            $this->errors ['author'] = 'Veuillez ajouter un auteur';
+            $this->errors['author'] = 'Veuillez ajouter un auteur';
         } elseif (strlen($author) > 50) {
-            $this->errors ['author'] = 'Votre champ "auteur" est trop long';
+            $this->errors['author'] = 'Votre champ "auteur" est trop long';
         } else {
             $this->author = $author;
         }
@@ -116,9 +116,9 @@ class Book extends BookManager
     public function setLocalization(string $localization): Book
     {
         if (empty($localization)) {
-            $this->errors ['localization'] = 'Veuillez ajouter une localisation';
+            $this->errors['localization'] = 'Veuillez ajouter une localisation';
         } elseif (strlen($localization) > 100) {
-            $this->errors ['localization'] = 'Votre champ "localisation" contient trop de caractère';
+            $this->errors['localization'] = 'Votre champ "localisation" contient trop de caractère';
         } else {
             $this->localization = $localization;
         }
@@ -197,9 +197,9 @@ class Book extends BookManager
     public function setIsbn(string $isbn): Book
     {
         if (empty($isbn)) {
-            $this->errors ['isbn'] = 'Veuillez ajouter un ISBN';
+            $this->errors['isbn'] = 'Veuillez ajouter un ISBN';
         } elseif (strlen($isbn) > 13) {
-            $this->errors ['isbn'] = 'Votre ISBN est trop long';
+            $this->errors['isbn'] = 'Votre ISBN est trop long';
         } else {
             $this->isbn = $isbn;
         }
