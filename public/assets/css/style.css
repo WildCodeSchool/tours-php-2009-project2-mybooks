@@ -33,7 +33,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(255, 115, 0);
+    background-color: var(--second-background-color);
     height: 80px;
     font-family: roboto;
     font-weight: bolder;
@@ -90,7 +90,7 @@ body{
     display: flex;
     font-size: 30px;
     font-family: roboto;
-    color: rgb(255, 115, 0);
+    color:var(--second-background-color);
 }
 
 .plusLittleImage {
@@ -119,7 +119,7 @@ body{
 
 .myLibrary ul li a{
     text-decoration: none;
-    color: rgb(255, 115, 0);
+    color: var(--second-background-color);
 }
 
 .flex-parent{
