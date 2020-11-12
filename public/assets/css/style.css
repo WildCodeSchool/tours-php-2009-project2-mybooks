@@ -2,8 +2,8 @@
 /*Colors*/
 
 :root{
-    --main-background-color : #EFEFEF;
-    --second-background-color: #DEDEDE;
+    --main-background-color : #f58427f5;
+    --second-background-color: #f5f5f5;
     --footer-background-color: #F0F0F0;
 
     --pen-width: 8vw;
@@ -23,16 +23,32 @@ html {
 
 body{
     background-color: var(--main-background-color);
+    margin: 0%;
 }
 
 .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
+    height: 80px;
+    font-family: roboto;
+    font-weight: bolder;
+    width: 100%;
+}
+
+.book-logo {
+    width: 50px;
+    margin: 15px;
 }
 
 .title {
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .title a{
@@ -41,11 +57,12 @@ body{
 }
 
 .user{
-    margin: 0;
+    margin-right: 30px;
+    width: 50px;
 }
 
 .userImage{
-    width: 3vw;
+    width: 40px;
 }
 
 /*Index*/
@@ -68,17 +85,19 @@ body{
 .containerIndex h1
 {
     display: flex;
-    font-size: 7vw;
+    font-size: 30px;
+    font-family: roboto;
 }
 
 .plusLittleImage {
     display: flex;
-    width: 15px;
+    width: 30px;
     margin: 0 0 0 5px;
 }
 
 .hrLibrary{
     width: 80%;
+   border-color: white;
 }
 
 .myLibrary ul {
@@ -99,7 +118,7 @@ body{
 }
 
 .flex-parent{
-    width: 54vh;
+    
     display: flex;
     flex-direction: column;
 }
@@ -172,6 +191,7 @@ body{
     padding: 5vw;
     border-radius: 10px;
     background-color: var(--second-background-color);
+    
 }
 
 label{
@@ -193,6 +213,7 @@ label{
 }
 .inputParution > input {
     width: 20%;
+    
 }
 #lu{
     padding: 2px;
@@ -395,7 +416,7 @@ button:hover {
     margin: 10px;
 }
 .previousButton, .nextButton  {
-    width: 30%;
+    width: 100px;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
 	background-color:#ffffff;
@@ -411,7 +432,8 @@ button:hover {
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
+    text-shadow:0px 1px 0px #ffffff;
+    margin: 2vh;
 }
 .previousButton:hover, .nextButton:hover  {
 	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);

@@ -9,33 +9,29 @@
             alt="image permettant d'accéder au formulaire d'ajout"></a>
         </div>
         <hr class="hrLibrary">
-        <form method="GET">
-            <input type="search" placeholder="Rechercher..."/>
-            <button>rechercher</button>
-        </form>
         <div class="myLibrary">
-            <ul>
-                <div class="flex-parent">
-                    {% for book in books %}
-                        <li><a href="/book/show/{{ book.id }}">
-                                <p class="indexBookTitle"> {{ book.title }} </p>
-                                <p class="indexBookAuthor"> {{ book.author }} </p> 
-                                <p class="indexBookLocalisation"> Localisation : {{ book.localization }}
-                                    {% if book.hasBeenRead == "Oui" %}
-                                    <img src="/assets/images/read-book.png" class="readBook" alt="image indiquant si le livre est lu">
-                                    {% else %}
-                                    <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> </p>
-                                    {% endif %}
-                                </p>
-                        </a></li>
-                            {% else %}
-                        <li>Aucun book à afficher!</li>
-                    {% endfor %}
-                </div>
+            <ul  class="flex-parent">
+                {% for book in books %}
+                    <li><a href="/book/show/{{ book.id }}">
+                            <p class="indexBookTitle"> {{ book.title }} </p>
+                            <p class="indexBookAuthor"> {{ book.author }} </p> 
+                            <p class="indexBookLocalisation"> Localisation : {{ book.localization }}
+                                {% if book.hasBeenRead == "Oui" %}
+                                <img src="/assets/images/read-book.png" class="readBook" alt="image indiquant si le livre est lu">
+                                {% else %}
+                                <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> </p>
+                                {% endif %}
+                            </p>
+                    </a></li>
+                        {% else %}
+                    <li>Aucun book à afficher!</li>
+                {% endfor %}
             </ul>
         </div>
         <div class="buttons">
-            <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; previous</a>
+            {% if previousPage > 0 %}
+                <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; previous</a>
+             {% endif %}
             <a href="/book/index/{{ nextPage }}" class="nextButton">next &gt;&gt;</a>
         </div>
         <div class ="alignPlusImage">
