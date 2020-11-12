@@ -84,7 +84,7 @@ class BookController extends AbstractController
                 return "";
             } else {
                 $errors = $book->getErrors();
-                $bookArray = $bookManager->selectAll();
+                $bookArray = [];
                 $bookArray['title'] = $_POST['title'];
                 $bookArray['author'] = $_POST['author'];
                 $bookArray['genre'] = $_POST['genre'];
