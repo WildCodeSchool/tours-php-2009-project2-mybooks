@@ -16,14 +16,15 @@
         <div class="myLibrary">
             <ul>
                 {% for book in books %}
-                    <li><a href="/book/show/{{ book.id }}"><p class="indexBookTitle">{{ book.title }}
-                        {% if book.hasBeenRead == "Oui" %}
-                            <img src="/assets/images/booklu.png" class="readBook" alt="image indiquant si le livre est lu">
-                        {% else %}
-                            <img src="/assets/images/booknonlu.png" class="readBook" alt="image indiquant si le livre est lu">
-                        {% endif %}
-                            <p class="indexBookAuthor">{{ book.author }}</p><p class="indexBookLocalisation">
-                            Localisation : {{ book.localization }}</p></a></li>
+                    <li><a href="/book/show/{{ book.id }}">
+                            <p class="indexBookTitle"> {{ book.title }} - {{ book.author }} 
+                                {% if book.hasBeenRead == "Oui" %}
+                                <img src="/assets/images/booklu.png" class="readBook" alt="image indiquant si le livre est lu">
+                                {% else %}
+                                <img src="/assets/images/booknonlu.png" class="readBook" alt="image indiquant si le livre est lu"> </p>
+                                {% endif %}
+                            <p class="indexBookLocalisation"> Localisation : {{ book.localization }} </p>
+                    </a></li>
                         {% else %}
                     <li>Aucun book à afficher!</li>
                 {% endfor %}
