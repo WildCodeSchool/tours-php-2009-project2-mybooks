@@ -2,9 +2,10 @@
 /*Colors*/
 
 :root{
-    --main-background-color : #f58427f5;
-    --second-background-color: #f5f5f5;
+    --main-background-color : #F0F0F0;
+    --second-background-color:rgb(255, 115, 0);
     --footer-background-color: #F0F0F0;
+    --font-color:  #F0F0F0;
 
     --pen-width: 8vw;
     --trash-width: 8vw;
@@ -25,13 +26,14 @@ body{
     background-color: var(--main-background-color);
     margin: 0%;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: rgb(255, 115, 0);
     height: 80px;
     font-family: roboto;
     font-weight: bolder;
@@ -54,7 +56,7 @@ body{
 
 .title a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .user{
@@ -88,6 +90,7 @@ body{
     display: flex;
     font-size: 30px;
     font-family: roboto;
+    color: rgb(255, 115, 0);
 }
 
 .plusLittleImage {
@@ -107,15 +110,16 @@ body{
 
 .myLibrary ul li{
     list-style-type: none;
-    background-color: var(--second-background-color);
-    border-radius: 10px;
-    margin : 2%;
+    background-color: white;
+    box-shadow: rgb(211, 208, 208)  1px 1px 5px;
+    margin :  2% 0px;
     padding: 0.1% 0% 0.5% 3%;
+   
 }
 
 .myLibrary ul li a{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 115, 0);
 }
 
 .flex-parent{
