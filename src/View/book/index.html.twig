@@ -14,8 +14,7 @@
             <button>rechercher</button>
         </form>
         <div class="myLibrary">
-            <ul>
-                <div class="flex-parent">
+            <ul class="flex-parent">
                     {% for book in books %}
                         <li><a href="/book/show/{{ book.id }}">
                                 <p class="indexBookTitle"> {{ book.title }} </p>
@@ -31,7 +30,6 @@
                             {% else %}
                         <li>Aucun book à afficher!</li>
                     {% endfor %}
-                </div>
             </ul>
         </div>
         <div class="buttons">
