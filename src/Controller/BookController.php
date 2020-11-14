@@ -85,15 +85,15 @@ class BookController extends AbstractController
             } else {
                 $errors = $book->getErrors();
                 $bookArray = [];
-                $bookArray['title'] = $_POST['title'];
-                $bookArray['author'] = $_POST['author'];
-                $bookArray['genre'] = $_POST['genre'];
-                $bookArray['localization'] = $_POST['localization'];
-                $bookArray['releaseDate'] = $_POST['releaseDate'];
-                $bookArray['description'] = $_POST['description'];
-                $bookArray['isbn'] = $_POST['isbn'];
-                $bookArray['hasBeenReadOn'] = $_POST['hasBeenReadOn'];
-                $bookArray['hasBeenRead'] = $read;
+                $bookArray['title'] = $book->getTitle();
+                $bookArray['author'] = $book->getAuthor();
+                $bookArray['genre'] = $book->getGenre();
+                $bookArray['localization'] = $book->getLocalization();
+                $bookArray['releaseDate'] = $book->getReleaseDate();
+                $bookArray['description'] = $book->getDescription();
+                $bookArray['isbn'] = $book->getIsbn();
+                $bookArray['hasBeenReadOn'] = $book->getHasBeenReadOn();
+                $bookArray['hasBeenRead'] = $book->getHasBeenRead();
                 return $this->twig->render('book/add.html.twig', ["today" => date('Y-m-d'),
                                             'book_array' => $bookArray,'errors' => $errors]);
             }
