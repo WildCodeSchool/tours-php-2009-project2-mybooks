@@ -4,7 +4,7 @@
 :root{
     --main-background-color : #F0F0F0;
     --second-background-color:rgb(255, 115, 0);
-    --footer-background-color: #F0F0F0;
+    --footer-background-color: rgb(255, 115, 0);
     --font-color:  #F0F0F0;
 
     --pen-width: 8vw;
@@ -38,6 +38,7 @@ body{
     font-family: roboto;
     font-weight: bolder;
     width: 100%;
+    box-shadow: rgb(197, 196, 196) 0px 3px 5px;
 }
 
 .book-logo {
@@ -111,9 +112,9 @@ body{
 .myLibrary ul li{
     list-style-type: none;
     background-color: white;
-    box-shadow: rgb(211, 208, 208)  1px 1px 5px;
-    margin :  2% 0px;
     padding: 0.1% 0% 0.5% 3%;
+    margin-left: 10px;
+    margin-right: 10px;
    
 }
 
@@ -144,12 +145,19 @@ body{
     width: 8%;
 }
 
-
-.indexBookLocalisation{
-    font-size:4vw;
+.localisationBook {
+    display: inline-block;
+    margin: 0px;
 }
 
+.indexBookLocalisation{
+    font-size: 16px;
+}
 
+.bookIcon {
+    width: 350px;
+    margin: 0px;
+}
 
 .plusImage{
     width: 15vw;
@@ -185,6 +193,9 @@ body{
 
 #addTitle{
     font-size: 5vw;
+    color: var(--second-background-color);
+    font-family: 'Roboto', sans-serif;
+
 }
 
 #addCross{
@@ -197,10 +208,6 @@ body{
     border-radius: 10px;
     background-color: var(--second-background-color);
     
-}
-
-label{
-    font-size: 5vw;
 }
 
 .inputPosition{
@@ -247,7 +254,6 @@ textarea{
     width: 15vw;
 }
 
-
 /*Edit*/
 
 
@@ -262,10 +268,12 @@ textarea{
 
 
 .bookDescription{
-    border-radius: 10px;
+    box-shadow: rgb(206, 205, 205) 5px 5px 5px;
+    margin: 10px;
     padding: 10px;
-    background-color: var(--second-background-color);
+    background-color: white;
     padding-left: 5vw;
+    color: var(--second-background-color);
 }
 
 #hrDescription{
@@ -332,6 +340,10 @@ textarea{
 
     .cross{
         width: var(--cross-width-desktop);
+    }
+
+    .formAdd {
+        color: var( --second-background-color);
     }
 
     /*Edit*/

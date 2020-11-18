@@ -15,13 +15,16 @@
                     <li><a href="/book/show/{{ book.id }}">
                             <p class="indexBookTitle"> {{ book.title }} </p>
                             <p class="indexBookAuthor"> {{ book.author }} </p> 
-                            <p class="indexBookLocalisation"> Localisation : {{ book.localization }}
-                                {% if book.hasBeenRead == "Oui" %}
-                                <img src="/assets/images/read-book.png" class="readBook" alt="image indiquant si le livre est lu">
-                                {% else %}
-                                <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> </p>
-                                {% endif %}
-                            </p>
+                            <div class"localisationBook">
+                                <p class="indexBookLocalisation"> Localisation : {{ book.localization }}</p>
+                                <div class="bookIcon">
+                                    {% if book.hasBeenRead == "Oui" %}
+                                    <img src="/assets/images/read-book.png" class="readBook" alt="image indiquant si le livre est lu">
+                                    {% else %}
+                                    <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> 
+                                    {% endif %}
+                                </div>
+                            </div>
                     </a></li>
                         {% else %}
                     <li>Aucun book à afficher!</li>
