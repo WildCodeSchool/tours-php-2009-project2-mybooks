@@ -101,6 +101,18 @@ class BookController extends AbstractController
                 return "";
             } else {
                 $errors = $book->getErrors();
+                $bookArray = [];
+                $bookArray['title'] = $book->getTitle();
+                $bookArray['author'] = $book->getAuthor();
+                $bookArray['genre'] = $book->getGenre();
+                $bookArray['localization'] = $book->getLocalization();
+                $bookArray['releaseDate'] = $book->getReleaseDate();
+                $bookArray['description'] = $book->getDescription();
+                $bookArray['isbn'] = $book->getIsbn();
+                $bookArray['hasBeenReadOn'] = $book->getHasBeenReadOn();
+                $bookArray['hasBeenRead'] = $book->getHasBeenRead();
+                return $this->twig->render('book/add.html.twig', ["today" => date('Y-m-d'),
+                                            'book_array' => $bookArray,'errors' => $errors]);
             }
         }
         return $this->twig->render('book/add.html.twig', ["today" => date('Y-m-d'), 'errors' => $errors]);

@@ -38,7 +38,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -62,7 +62,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getAuthor(): string
+    public function getAuthor(): ?string
     {
         return $this->author;
     }
@@ -86,7 +86,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getGenre(): string
+    public function getGenre(): ?string
     {
         return $this->genre;
     }
@@ -104,7 +104,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getLocalization(): string
+    public function getLocalization(): ?string
     {
         return $this->localization;
     }
@@ -128,7 +128,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getHasBeenRead(): string
+    public function getHasBeenRead(): ?string
     {
         return $this->hasBeenRead;
     }
@@ -167,7 +167,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -185,7 +185,7 @@ class Book extends BookManager
     /**
      * @return string
      */
-    public function getIsbn(): string
+    public function getIsbn(): ?string
     {
         return $this->isbn;
     }

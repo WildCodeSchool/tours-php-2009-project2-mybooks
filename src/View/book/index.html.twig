@@ -5,11 +5,9 @@
     <main>
         <img src="/assets/images/presentation.jpg" class="presentationImage" alt="image de page d'accueil">
         <div class="containerIndex">
-            <h1 class="titleLibrary">Ma bibliothèque</h1><a href="/book/add"><img class="plusLittleImage" src="/assets/images/iconeplus.png"
-            alt="image permettant d'accéder au formulaire d'ajout"></a>
+            <h1 class="titleLibrary">Ma bibliothèque</h1>
         </div>
-        <hr class="hrLibrary">
-    
+        <hr class="hrLibrary">    
         <form action="/book/index/" method="POST" >
             <label for='userSearch' class="searchText">Rechercher</label>
             <div class="searchBar">
@@ -26,34 +24,44 @@
                 <button type="submit" class"button"><img src="/assets/images/magnifyingGlass.png" class="magnifyingGlassImage"></button>
             </div>
         </form>
-
+        <div class="addBook">
+            <a href="/book/add" class="aPlus"><img src="/assets/images/iconplus.png" class="plusImage1" 
+                alt="image permettant d'accéder au formulaire d'ajout"></a>
+        </div>
         <div class="myLibrary">
-            <ul class="flex-parent">
-                    {% for book in books %}
-                        <li><a href="/book/show/{{ book.id }}">
-                                <p class="indexBookTitle"> {{ book.title }} </p>
-                                <p class="indexBookAuthor"> {{ book.author }} </p> 
-                                <p class="indexBookLocalisation"> Localisation : {{ book.localization }}
+
+            <ul  class="flex-parent">
+                {% for book in books %}
+                    <li><a href="/book/show/{{ book.id }}">
+                            <p class="indexBookTitle"> {{ book.title }} </p>
+                            <p class="indexBookAuthor"> {{ book.author }} </p> 
+                            <div class"localisationBook">
+                                <p class="indexBookLocalisation"> Localisation : {{ book.localization }}</p>
+                                <div class="bookIcon">
+
                                     {% if book.hasBeenRead == "Oui" %}
-                                    <img src="/assets/images/booklu.png" class="readBook" alt="image indiquant si le livre est lu">
+                                    <img src="/assets/images/read-book.png" class="readBook" alt="image indiquant si le livre est lu">
                                     {% else %}
-                                    <img src="/assets/images/booknonlu.png" class="readBook" alt="image indiquant si le livre est lu"> </p>
+                                    <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> 
                                     {% endif %}
-                                </p>
-                        </a></li>
-                            {% else %}
-                        <li>Aucun livre à afficher!</li>
-                    {% endfor %}
+                                </div>
+                            </div>
+                    </a></li>
+                        {% else %}
+                    <li>Aucun livre à afficher!</li>
+                {% endfor %}
             </ul>
         </div>
         <div class="buttons">
             {% if previousPage > 0 %}
-                <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; previous</a>
+               <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; précédent</a>
             {% endif %}
-                <a href="/book/index/{{ nextPage }}" class="nextButton">next &gt;&gt;</a>
+            {% if books|length == 10  %}
+               <a href="/book/index/{{ nextPage }}" class="nextButton">Suivant &gt;&gt;</a>
+           {% endif %}     
         </div>
         <div class ="alignPlusImage">
-            <a href="/book/add"><img src="/assets/images/iconeplus.png" class="plusImage" 
+            <a href="/book/add"><img src="/assets/images/iconplus.png" class="plusImage" 
             alt="image permettant d'accéder au formulaire d'ajout"></a>
         </div>
     </main>
