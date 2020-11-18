@@ -5,10 +5,13 @@
     <main>
         <img src="/assets/images/presentation.jpg" class="presentationImage" alt="image de page d'accueil">
         <div class="containerIndex">
-            <h1 class="titleLibrary">Ma bibliothèque</h1><a href="/book/add"><img class="plusLittleImage" src="/assets/images/iconeplus.png"
-            alt="image permettant d'accéder au formulaire d'ajout"></a>
+            <h1 class="titleLibrary">Ma bibliothèque</h1>
         </div>
         <hr class="hrLibrary">
+        <div class="addBook">
+            <a href="/book/add" class="aPlus"><img src="/assets/images/iconplus.png" class="plusImage1" 
+                alt="image permettant d'accéder au formulaire d'ajout"></a>
+        </div>
         <div class="myLibrary">
             <ul  class="flex-parent">
                 {% for book in books %}
@@ -27,18 +30,18 @@
                             </div>
                     </a></li>
                         {% else %}
-                    <li>Aucun book à afficher!</li>
+                    <li>Aucun livre à afficher!</li>
                 {% endfor %}
             </ul>
         </div>
         <div class="buttons">
             {% if previousPage > 0 %}
-                <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; previous</a>
+                <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; précédent</a>
              {% endif %}
-            <a href="/book/index/{{ nextPage }}" class="nextButton">next &gt;&gt;</a>
+            <a href="/book/index/{{ nextPage }}" class="nextButton">Suivant &gt;&gt;</a>
         </div>
         <div class ="alignPlusImage">
-            <a href="/book/add"><img src="/assets/images/iconeplus.png" class="plusImage" 
+            <a href="/book/add"><img src="/assets/images/iconplus.png" class="plusImage" 
             alt="image permettant d'accéder au formulaire d'ajout"></a>
         </div>
     </main>

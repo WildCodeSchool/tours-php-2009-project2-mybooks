@@ -18,6 +18,7 @@
 
 /*All pages*/
 
+
 html {
     height: 100%;
 }
@@ -94,11 +95,6 @@ body{
     color:var(--second-background-color);
 }
 
-.plusLittleImage {
-    display: flex;
-    width: 30px;
-    margin: 0 0 0 5px;
-}
 
 .hrLibrary{
     width: 80%;
@@ -115,7 +111,7 @@ body{
     padding: 0.1% 0% 0.5% 3%;
     margin-left: 10px;
     margin-right: 10px;
-   
+    color: var(--second-background-color)
 }
 
 .myLibrary ul li a{
@@ -159,9 +155,13 @@ body{
     margin: 0px;
 }
 
-.plusImage{
-    width: 15vw;
+.plusImage1{
+    width: 50px;
+    margin-left: 20px;
+}
 
+.plusImage{
+    width: 50px;
 }
 
 .alignPlusImage{
@@ -171,6 +171,11 @@ body{
 
 /* Form*/
 
+.main{
+    background-color: var(--main-background-color);
+    width: 100%;
+    height: 100%;
+}
 
 .pen{
     width: var(--pen-width);
@@ -217,6 +222,7 @@ body{
     justify-content: center;
     width: 80%;
 }
+
 .inputParution{
     display: flex;
     justify-content: center;
@@ -252,6 +258,42 @@ textarea{
     padding: 10em;
     justify-content: center;
     width: 15vw;
+}
+
+.formInputStyle {
+    color: var(--second-background-color);
+    font-family: roboto;
+    margin: 10px;
+}
+
+.addButtonDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.addBookButton {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#f78811;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.addBookButton:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.addBookButton:active {
+	position:relative;
+	top:1px;
 }
 
 /*Edit*/
@@ -303,6 +345,8 @@ textarea{
 
     text-align: center;
     margin-top: 5%;
+    color: var(--second-background-color);
+    font-family: roboto;
 }
 
 
@@ -343,7 +387,7 @@ textarea{
     }
 
     .formAdd {
-        color: var( --second-background-color);
+        color: var( --main-background-color);
     }
 
     /*Edit*/
@@ -443,7 +487,7 @@ button:hover {
     flex-direction: row;
     justify-content: center;
 	cursor:pointer;
-	color:#666666;
+	color:var(--second-background-color);
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
