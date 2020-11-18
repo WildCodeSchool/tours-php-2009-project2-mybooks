@@ -13,6 +13,7 @@
                 alt="image permettant d'accéder au formulaire d'ajout"></a>
         </div>
         <div class="myLibrary">
+
             <ul  class="flex-parent">
                 {% for book in books %}
                     <li><a href="/book/show/{{ book.id }}">
@@ -21,17 +22,20 @@
                             <div class"localisationBook">
                                 <p class="indexBookLocalisation"> Localisation : {{ book.localization }}</p>
                                 <div class="bookIcon">
+
                                     {% if book.hasBeenRead == "Oui" %}
                                     <img src="/assets/images/read-book.png" class="readBook" alt="image indiquant si le livre est lu">
                                     {% else %}
                                     <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> 
                                     {% endif %}
+
                                 </div>
                             </div>
                     </a></li>
                         {% else %}
                     <li>Aucun livre à afficher!</li>
                 {% endfor %}
+
             </ul>
         </div>
         <div class="buttons">
