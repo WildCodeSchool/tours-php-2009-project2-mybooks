@@ -38,7 +38,10 @@
             {% if previousPage > 0 %}
                 <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; précédent</a>
              {% endif %}
+            {% if books|length == 10  %}
             <a href="/book/index/{{ nextPage }}" class="nextButton">Suivant &gt;&gt;</a>
+           {% endif %}
+      
         </div>
         <div class ="alignPlusImage">
             <a href="/book/add"><img src="/assets/images/iconplus.png" class="plusImage" 
