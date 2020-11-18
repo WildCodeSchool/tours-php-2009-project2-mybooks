@@ -10,6 +10,7 @@
     --pen-width: 8vw;
     --trash-width: 8vw;
     --cross-width: 8vw;
+    --magnifyingGlass-width: 4vw;
     --pen-width-desktop: 3vw;
     --trash-width-desktop: 3vw;
     --cross-width-desktop: 3vw;
@@ -139,6 +140,10 @@ body{
 .readBook {
     height: 8%;
     width: 8%;
+}
+
+.magnifyingGlassImage{
+    width: var(--magnifyingGlass-width);
 }
 
 .localisationBook {

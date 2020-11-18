@@ -11,23 +11,40 @@ use App\Model\Book;
  */
 class BookController extends AbstractController
 {
-    /**
+  /**
      * Display book listing
      *
-     * @return string
+    * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index(int $page): string
+
+    public function index($page): string
     {
         $bookManager = new BookManager();
+        $books = [];
+        $page = intval($page);
 
-        if ($page <= 0) {
-            $page = 1;
+
+        if (isset($_POST['dataField']) && !empty($_POST['userSearch'])) {
+            if (
+                    $_POST['dataField'] == 'title' ||
+                    $_POST['dataField'] == 'author' ||
+                    $_POST['dataField'] == 'localization' ||
+                    $_POST['dataField'] == 'genre' ||
+                    $_POST['dataField'] == 'isbn' ||
+                    $_POST['dataField'] == 'releaseDate'
+            ) {
+                $books = $bookManager->selectByTenPerPage($page);
+                $books = $bookManager->search($_POST['userSearch'], $_POST['dataField']);
+            }
+            return $this->twig->render(
+                'book/index.html.twig',
+                ['books' => $books, 'previousPage' => $page - 1, 'nextPage' => $page + 1]
+            );
         }
-
-        $books = $bookManager->selectByTenPerPage($page);
+            $books = $bookManager->selectByTenPerPage($page);
 
         return $this->twig->render(
             'book/index.html.twig',

@@ -6,6 +6,8 @@
 
 namespace App\Model;
 
+use PDO;
+
 class BookManager extends AbstractManager
 {
     public const TABLE = 'book';
@@ -99,23 +101,50 @@ class BookManager extends AbstractManager
         }
         return $statement->execute();
     }
+  
+    /**
+    * @param string $dataField
+    * @param string $userSearch
+    * @return array|int
+    */
 
+    public function search(string $userSearch, string $dataField)
+    {
+        $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE " . $dataField .
+        " LIKE :userSearch");
+        if ($statement == false) {
+            return self::DATABASE_ERROR;
+        }
+        if ($statement->bindValue(':userSearch', '%' . $userSearch . '%', \PDO::PARAM_STR) == false) {
+            return self::DATABASE_ERROR;
+        }
+        if (($statement->execute()) == false) {
+            return self::DATABASE_ERROR;
+        }
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+  
     public function selectByTenPerPage(int $page)
     {
         // prepared request
         $bookPerPage = 10;
-        $offset = 10 * ($page - 1);
+        if ($page <= 0) {
+            $offset = 10;
+        } else {
+            $offset = 10 * ($page - 1);
+        }
         $statement = $this->pdo->prepare('SELECT * FROM ' . self::TABLE . ' LIMIT :limit OFFSET :offset');
         if ($statement == false) {
             return self::DATABASE_ERROR;
         }
-        if($statement->bindValue('limit', $bookPerPage, \PDO::PARAM_INT) == false) {
+        if ($statement->bindValue('limit', $bookPerPage, \PDO::PARAM_INT) == false) {
             return self::DATABASE_ERROR;
         }
-        if($statement->bindValue('offset', $offset, \PDO::PARAM_INT) == false) {
+        if ($statement->bindValue('offset', $offset, \PDO::PARAM_INT) == false) {
             return self::DATABASE_ERROR;
         };
-        if(($statement->execute()) == false) {
+        if (($statement->execute()) == false) {
             return self::DATABASE_ERROR;
         }
         return $statement->fetchAll();
