@@ -72,40 +72,6 @@ body{
     font-size: 7vw;
 }
 
-/* Add searchBar*/
-
-.searchText{
-    font-size: 4vw;
-    padding-left: 10vw;
-}
-
-.searchBar{
-    display : flex;
-    justify-content: center;
-}
-
-#userSearch{
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 35%;
-}
-
-#dataField{
-    margin-right: 5%;
-    margin-left: 5%;
-    width: 20%;
-}
-
-/*Add magnifyingGlass*/
-
-.magnifyingGlassImage{
-    width: var(--magnifyingGlass-width);
-}
-
-h1{
-    text-align:center;
-}
-
 .plusLittleImage {
     display: flex;
     width: 15px;
@@ -133,10 +99,17 @@ h1{
     color: black;
 }
 
+.flex-parent{
+    width: 54vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .indexBookTitle{
     font-size: 6vw;
-    display: flex;
-    justify-content: space-between;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .indexBookAuthor{
@@ -148,6 +121,9 @@ h1{
     width: 8%;
 }
 
+.magnifyingGlassImage{
+    width: var(--magnifyingGlass-width);
+}
 
 .indexBookLocalisation{
     font-size:4vw;
@@ -415,3 +391,39 @@ button:hover {
     clear: both;
     display: table;
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+.previousButton, .nextButton  {
+    width: 30%;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.previousButton:hover, .nextButton:hover  {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.previousButton:active, .nextButton:active {
+	position:relative;
+	top:1px;
+}
+
+        

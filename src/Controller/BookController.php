@@ -11,34 +11,48 @@ use App\Model\Book;
  */
 class BookController extends AbstractController
 {
-    /**
+  /**
      * Display book listing
      *
-     * @return string
+    * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index(): string
+
+    public function index($page): string
     {
         $bookManager = new BookManager();
         $books = [];
-        if (isset($_GET['userSearch']) && !empty($_GET['userSearch'])) {
+        $page = intval($page);
+
+
+        if (isset($_POST['dataField']) && !empty($_POST['userSearch'])) {
             if (
-                $_GET['dataField'] == 'title' ||
-                $_GET['dataField'] == 'author' ||
-                $_GET['dataField'] == 'localization' ||
-                $_GET['dataField'] == 'genre' ||
-                $_GET['dataField'] == 'isbn' ||
-                $_GET['dataField'] == 'releaseDate'
+                    $_POST['dataField'] == 'title' ||
+                    $_POST['dataField'] == 'author' ||
+                    $_POST['dataField'] == 'localization' ||
+                    $_POST['dataField'] == 'genre' ||
+                    $_POST['dataField'] == 'isbn' ||
+                    $_POST['dataField'] == 'releaseDate'
             ) {
-                $books = $bookManager->search($_GET['userSearch'], $_GET['dataField']);
+                $books = $bookManager->selectByTenPerPage($page);
+                $books = $bookManager->search($_POST['userSearch'], $_POST['dataField']);
             }
-        } else {
-            $books = $bookManager->selectAll();
+            return $this->twig->render(
+                'book/index.html.twig',
+                ['books' => $books, 'previousPage' => $page - 1, 'nextPage' => $page + 1]
+            );
         }
-        return $this->twig->render('book/index.html.twig', ['books' => $books]);
+            $books = $bookManager->selectByTenPerPage($page);
+
+        return $this->twig->render(
+            'book/index.html.twig',
+            ['books' => $books, 'previousPage' => $page - 1, 'nextPage' => $page + 1]
+        );
     }
+
+
 
     /**
      * Display book informations specified by $id
