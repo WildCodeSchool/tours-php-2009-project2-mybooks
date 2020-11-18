@@ -52,8 +52,6 @@ class BookController extends AbstractController
         );
     }
 
-
-
     /**
      * Display book informations specified by $id
      *

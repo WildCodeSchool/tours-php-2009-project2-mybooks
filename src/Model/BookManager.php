@@ -101,6 +101,7 @@ class BookManager extends AbstractManager
         }
         return $statement->execute();
     }
+  
     /**
     * @param string $dataField
     * @param string $userSearch
@@ -123,7 +124,7 @@ class BookManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
-
+  
     public function selectByTenPerPage(int $page)
     {
         // prepared request
