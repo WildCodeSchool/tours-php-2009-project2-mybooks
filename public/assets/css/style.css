@@ -2,14 +2,15 @@
 /*Colors*/
 
 :root{
-    --main-background-color : #F0F0F0;
+    --main-background-color : white;
     --second-background-color:rgb(255, 115, 0);
     --footer-background-color: rgb(255, 115, 0);
-    --font-color:  #F0F0F0;
+    --font-color:  white;
 
     --pen-width: 8vw;
     --trash-width: 8vw;
     --cross-width: 8vw;
+
     --magnifyingGlass-width: 2vw;;
     --iconPlus-width: 8vw;
     --pen-width-desktop: 3vw;
@@ -95,7 +96,6 @@ body{
     margin-left: 60%;
 }
 
-
 .hrLibrary{
     width: 80%;
     border-color: white;
@@ -152,7 +152,6 @@ body{
 }
 
 .flex-parent{
-    
     display: flex;
     flex-direction: column;
 }
@@ -232,7 +231,6 @@ body{
     font-size: 5vw;
     color: var(--second-background-color);
     font-family: 'Roboto', sans-serif;
-
 }
 
 #addCross{
@@ -243,8 +241,15 @@ body{
     margin: 5vw;
     padding: 5vw;
     border-radius: 10px;
-    background-color: var(--second-background-color);
-    
+    background-color: var(--second-background-color); 
+}
+.formAdd p{
+    color: red;
+}
+
+#hasBeenRead{
+    width: 10vw;
+    height: 5.5vw;
 }
 
 .inputPosition{
@@ -277,7 +282,7 @@ body{
 
 
 textarea{
-    height: 5vw;
+    height: 10vw;
 }
 
 .submit{
@@ -328,6 +333,29 @@ textarea{
 	top:1px;
 }
 
+/*Add*/
+
+.addPage{
+    box-shadow: rgb(197, 196, 196) 5px 5px 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    padding-left: 5vw;
+    padding-bottom: 30px;
+    color: var(--second-background-color);
+}
+
+.hrAdd{
+    text-align: center;
+    width: 70%;
+    border-color: white;
+}
+
+#addCross{
+    padding-left: 30vw;
+    padding-top:2vw;
+}
+
 /*Edit*/
 
 
@@ -336,11 +364,34 @@ textarea{
     justify-content: center;
 }
 
-#editCross{
-    padding-left: 30vw;
+.editPage{
+    box-shadow: rgb(197, 196, 196) 5px 5px 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    padding-left: 5vw;
+    padding-bottom: 30px;
+    color: var(--second-background-color);
 }
 
+#editCross{
+    padding-left: 30vw;
+    padding-top:2vw;
+}
 
+#editTitle{
+    font-size: 5vw;
+    color: var(--second-background-color);
+    font-family: 'Roboto', sans-serif;
+}
+.hrEdit{
+    text-align: center;
+    width: 70%;
+    border-color: white;
+}
+#description{
+    padding-left: 5vw;
+}
 .bookDescription{
     box-shadow: rgb(206, 205, 205) 5px 5px 5px;
     margin: 10px;
@@ -358,7 +409,6 @@ textarea{
 .hightIcons{
     display: flex;
     justify-content: flex-end;
-
     padding-right: 10px;
 }
 
@@ -380,6 +430,7 @@ textarea{
     color: var(--second-background-color);
     font-family: roboto;
 }
+
 
 /*legalMentions*/
 
@@ -506,13 +557,11 @@ button:hover {
 	top:1px;
 }
 
-
 @media screen and (max-width : 767px) {
 
     .booksPicture{
         display: none;
     }
-
 }
         
 @media screen and (min-width : 768px) {
@@ -584,8 +633,50 @@ button:hover {
         color: var( --main-background-color);
     }
 
-    /*Edit*/
+    /*Add*/
 
+    .addPage{
+        width: 65%;
+        margin-left: 15em;
+        margin-right: 15em;
+        box-shadow: rgb(197, 196, 196) 6px 6px 6px 6px;
+    }
+
+    .formInputStyle input{
+        height : 0.5em;
+    }
+
+    #label{
+        font-size: 1.5em;
+    }
+
+    .formInputStyle p{
+        font-size: 1.3em;;
+    }
+    .addBookButton{
+        height: 3em;
+        font-size: 1.2em;
+        width: 8em;
+    }
+    #addTitle{
+        font-size: 2em;
+        color: var(--second-background-color);
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /*Edit*/
+    .editPage{
+        width: 65%;
+        margin-left: 15em;
+        margin-right: 15em;
+        box-shadow: rgb(197, 196, 196) 6px 6px 6px 6px;
+    }
+
+    #editTitle{
+        font-size: 2em;
+        color: var(--second-background-color);
+        font-family: 'Roboto', sans-serif;
+    }
     .bookDescription{
         margin: 5%;
     }
