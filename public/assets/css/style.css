@@ -10,15 +10,15 @@
     --pen-width: 8vw;
     --trash-width: 8vw;
     --cross-width: 8vw;
-    --magnifyingGlass-width: 4vw;
-    --pen-width-desktop: 3em;
-    --trash-width-desktop: 3em;
-    --cross-width-desktop: 3em;
+
+    --magnifyingGlass-width: 2vw;;
+    --iconPlus-width: 8vw;
+    --pen-width-desktop: 3vw;
+    --trash-width-desktop: 3vw;
+    --cross-width-desktop: 3vw;
 }
 
-
 /*All pages*/
-
 
 html {
     height: 100%;
@@ -54,7 +54,6 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Roboto', sans-serif;
-
 }
 
 .title a{
@@ -76,30 +75,63 @@ body{
 .presentationImage{
     display: none;
 }
+
 .containerIndex {
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.containerIndex a {
-    margin: 0;
-    padding: 0;
-    width: 0;
-}
 
 .containerIndex h1
 {
     display: flex;
+    align-items: center;
+
     font-size: 30px;
     font-family: roboto;
     color:var(--second-background-color);
 }
 
+.plusImage1{
+    width: 6vw;
+    margin-left: 60%;
+}
+
 .hrLibrary{
     width: 80%;
-   border-color: white;
+    border-color: white;
+    margin-bottom: 3%;
 }
+
+/*searchBar*/
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+.searchText {
+    color:var(--second-background-color);
+}
+
+#userSearch{
+    border-radius: 10px;
+    width: 30vw;
+    height: 80%;
+}
+
+#dataField{
+    border-radius: 10px;
+    height: 80%;
+}
+
+.magnifyingGlassImage{
+    width: var(--magnifyingGlass-width);
+}
+
+/*bookList*/
 
 .myLibrary ul {
     padding:0;
@@ -140,10 +172,6 @@ body{
     width: 8%;
 }
 
-.magnifyingGlassImage{
-    width: var(--magnifyingGlass-width);
-}
-
 .localisationBook {
     display: inline-block;
     margin: 0px;
@@ -158,10 +186,6 @@ body{
     margin: 0px;
 }
 
-.plusImage1{
-    width: 50px;
-    margin-left: 20px;
-}
 
 .plusImage{
     width: 50px;
@@ -171,6 +195,10 @@ body{
     text-align: center;
 }
 
+.hrBooks{
+    width: 80%;
+    border-color: white;
+}
 
 /* Form*/
 
@@ -403,10 +431,30 @@ textarea{
     font-family: roboto;
 }
 
-
 @media screen and (min-width : 656px) {
 
-    /*Index*/
+  /*searchBar*/
+
+    .searchText {
+        color:var(--second-background-color);
+    }
+    
+    #userSearch{
+        border-radius: 10px;
+        width: 30vw;
+        height: 80%;
+    }
+    
+    #dataField{
+        border-radius: 10px;
+        height: 80%;
+    }
+
+    .plusImage1{
+        width: 4vw;
+    }
+  
+  /*Index*/
 
     .plusImage{
         width: 8vw;
@@ -605,5 +653,3 @@ button:hover {
 	position:relative;
 	top:1px;
 }
-
-        
