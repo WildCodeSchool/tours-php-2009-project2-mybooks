@@ -1,11 +1,14 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <section class="editCrossSection">
-        <h1 id="editTitle">Modifications</h1>
-        <a href="/book/show/{{ book_array.id }}" id="editCross"><img src="/assets/images/cross.png" class="cross"
+    <section class="editPage">
+        <section class="editCrossSection">
+            <h1 id="editTitle">Modifications</h1>
+            <a href="/book/show/{{ book_array.id }}" id="editCross"><img src="/assets/images/cross.png" class="cross"
         alt="Image d'une croix permettant de fermer la page d'édition"></a>
-    </section>
+        </section>
+        <hr class="hrEdit">
 
     {% include 'book/_form.html.twig' %}
+    </section>
 {% endblock %}
