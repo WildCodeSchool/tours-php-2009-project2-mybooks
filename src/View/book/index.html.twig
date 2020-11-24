@@ -1,4 +1,3 @@
-
 {% extends 'layout.html.twig' %}
 
 {% block content %}
@@ -6,28 +5,28 @@
         <img src="/assets/images/presentation.jpg" class="presentationImage" alt="image de page d'accueil">
         <div class="containerIndex">
             <h1 class="titleLibrary">Ma bibliothèque</h1>
-        </div>
-        <hr class="hrLibrary">    
-        <form action="/book/index/" method="POST" >
-            <label for='userSearch' class="searchText">Rechercher</label>
-            <div class="searchBar">
-            <input type="text" placeholder="Ex: Balzac" id='userSearch' name='userSearch'/>
-            <label for='dataField'>dans</label>
-            <select name="dataField" id="dataField">
-                <option value="title" selected>Titre</option>
-                <option value="author">Auteur</option>
-                <option value="releaseDate">Date de parution</option>
-                <option value="genre">Genre</option>
-                <option value="isbn">ISBN</option>
-                <option value="localization">Localisation</option>
-            </select>
-                <button type="submit" class"button"><img src="/assets/images/magnifyingGlass.png" class="magnifyingGlassImage"></button>
-            </div>
-        </form>
-        <div class="addBook">
-            <a href="/book/add" class="aPlus"><img src="/assets/images/iconplus.png" class="plusImage1" 
+            <div class="addBook">
+                <a href="/book/add" class="aPlus"><img src="/assets/images/iconplus.png" class="plusImage1" 
                 alt="image permettant d'accéder au formulaire d'ajout"></a>
+            </div>
         </div>
+        <hr class="hrLibrary">             
+        <div class="searchBar">
+            <form action="/book/index/" method="POST" >
+                <input type="text" placeholder="Rechercher" id='userSearch' name='userSearch'/>
+                <label for='dataField' class="searchText">dans</label>
+                <select name="dataField" id="dataField">
+                    <option value="title" selected>Titre</option>
+                    <option value="author">Auteur</option>
+                    <option value="releaseDate">Date de parution</option>
+                    <option value="genre">Genre</option>
+                    <option value="isbn">ISBN</option>
+                    <option value="localization">Localisation</option>
+                </select>
+                    <button type="submit" class"button"><img src="/assets/images/magnifyingGlass.png" class="magnifyingGlassImage"></button>
+            </form>            
+        </div>
+
         <div class="myLibrary">
 
             <ul  class="flex-parent">
@@ -44,6 +43,7 @@
                                     {% else %}
                                     <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> 
                                     {% endif %}
+                                <hr class="hrLibrary">             
                                 </div>
                             </div>
                     </a></li>
