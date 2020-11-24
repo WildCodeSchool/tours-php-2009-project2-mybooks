@@ -1,4 +1,3 @@
-
 /*Colors*/
 
 :root{
@@ -429,6 +428,29 @@ textarea{
     margin-top: 5%;
     color: var(--second-background-color);
     font-family: roboto;
+}
+
+/*legalMentions*/
+
+.legalMentions{
+    color: black;
+    margin: 5%;
+    text-align: justify;
+    }
+    .legalMentions h2 {
+    text-align: center;
+    }
+    
+    .legalMentions h2, h4 {
+    color: var(--second-background-color);
+}
+
+
+@media screen and (max-width : 767px) {
+
+    .booksPicture{
+        display: none;
+    }
 }
 
 @media screen and (min-width : 656px) {
