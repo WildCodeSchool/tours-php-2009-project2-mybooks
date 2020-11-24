@@ -71,9 +71,7 @@ body{
 
 /*Index*/
 
-.presentationImage{
-    display: none;
-}
+
 
 .containerIndex {
     height: 60px;
@@ -103,6 +101,8 @@ body{
     border-color: white;
     margin-bottom: 3%;
 }
+
+
 
 /*searchBar*/
 
@@ -373,13 +373,29 @@ textarea{
 
 /*Footer*/
 
-.footer {
+.footer{
 
     text-align: center;
     margin-top: 5%;
     color: var(--second-background-color);
     font-family: roboto;
 }
+
+/*legalMentions*/
+
+.legalMentions{
+    color: black;
+    margin: 5%;
+    text-align: justify;
+}
+.legalMentions h2 {
+    text-align: center;
+}
+
+.legalMentions h2, h4 {
+    color: var(--second-background-color);
+}
+
 
 /*Delete confimation*/
 
@@ -490,6 +506,14 @@ button:hover {
 	top:1px;
 }
 
+
+@media screen and (max-width : 767px) {
+
+    .booksPicture{
+        display: none;
+    }
+
+}
         
 @media screen and (min-width : 768px) {
 
@@ -533,6 +557,14 @@ button:hover {
         width: 8vw;
     }
 
+
+    .booksPicture{
+       width: 70%;
+       margin-top: 1%;
+
+    }
+    
+
     /*Form*/
 
     .pen{
@@ -557,4 +589,4 @@ button:hover {
     .bookDescription{
         margin: 5%;
     }
-}
+}}

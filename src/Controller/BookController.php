@@ -156,4 +156,9 @@ class BookController extends AbstractController
         $bookManager->delete($id);
         header('Location:/');
     }
+
+    public function legalMentions()
+    {
+        return $this->twig->render('book/legalMentions.html.twig');
+    }
 }
