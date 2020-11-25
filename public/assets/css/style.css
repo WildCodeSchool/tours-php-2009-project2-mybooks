@@ -147,7 +147,9 @@ body{
 /*bookList*/
 
 .myLibrary ul {
-    padding:0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .myLibrary ul li{
@@ -167,6 +169,7 @@ body{
 .flex-parent{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .indexBookTitle{
@@ -496,6 +499,13 @@ textarea{
         font-size: var(--font-size-localisation-desktop);
     }
 
+    .flex-parent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
 
     /*Form*/
 
@@ -553,7 +563,6 @@ textarea{
 
     /*Edit*/
     .editPage{
-        width: 65%;
         margin-left: 15em;
         margin-right: 15em;
         box-shadow: rgb(197, 196, 196) 6px 6px 6px 6px;
