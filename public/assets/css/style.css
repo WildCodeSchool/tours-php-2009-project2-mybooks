@@ -198,6 +198,10 @@ body{
 
 .indexBookLocalisation{
     font-size: var(--font-size-localisation-mobile);
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .plusImage{
@@ -494,6 +498,10 @@ textarea{
 
     .indexBookLocalisation{
         font-size: var(--font-size-localisation-desktop);
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
 
