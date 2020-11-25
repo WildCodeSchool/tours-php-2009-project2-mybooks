@@ -3,19 +3,29 @@
 
 :root{
     --main-background-color : white;
-    --second-background-color:rgb(255, 115, 0);
+    --orange-color:rgb(255, 115, 0);
+    --second-background-color : rgb(238, 238, 238);
     --footer-background-color: rgb(255, 115, 0);
     --font-color:  white;
 
-    --pen-width: 8vw;
-    --trash-width: 8vw;
-    --cross-width: 8vw;
+    
+    --font-size-title-mobile: 26px;
+    --font-size-author-mobile: 20px;
+    --font-size-localisation-mobile: 16px; 
+    --font-size-title-desktop: 36px;
+    --font-size-author-desktop : 30px;
+    --font-size-localisation-desktop: 26px; 
 
-    --magnifyingGlass-width: 2vw;;
-    --iconPlus-width: 8vw;
-    --pen-width-desktop: 3vw;
-    --trash-width-desktop: 3vw;
-    --cross-width-desktop: 3vw;
+
+    --pen-width: 8vw;
+    --trash-width: 30px;
+    --cross-width: 30px;
+
+    --magnifyingGlass-width: 30px;
+    --iconPlus-width: 30px;
+    --pen-width-desktop: 40px;
+    --trash-width-desktop: 40px;
+    --cross-width-desktop: 40px;
 }
 
 /*All pages*/
@@ -25,17 +35,16 @@ html {
 }
 
 body{
-    background-color: var(--main-background-color);
+    background-color: var(--second-background-color);
     margin: 0%;
     font-family: 'Roboto', sans-serif;
-    color: white;
 }
 
 .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--second-background-color);
+    background-color: var(--orange-color);
     height: 80px;
     font-family: roboto;
     font-weight: bolder;
@@ -59,6 +68,10 @@ body{
 .title a{
     text-decoration: none;
     color: white;
+}
+
+.bookTitle {
+    text-align: center;
 }
 
 .user{
@@ -90,11 +103,11 @@ body{
 
     font-size: 30px;
     font-family: roboto;
-    color:var(--second-background-color);
+    color:var(--orange-color);
 }
 
 .plusImage1{
-    width: 6vw;
+    width: 45px;
     margin-left: 60%;
 }
 
@@ -113,7 +126,7 @@ body{
 }
 
 .searchText {
-    color:var(--second-background-color);
+    color:var(--orange-color);
 }
 
 #userSearch{
@@ -143,12 +156,12 @@ body{
     padding: 0.1% 0% 0.5% 3%;
     margin-left: 10px;
     margin-right: 10px;
-    color: var(--second-background-color)
+    color: var(--orange-color)
 }
 
 .myLibrary ul li a{
     text-decoration: none;
-    color: var(--second-background-color);
+    color: var(--orange-color);
 }
 
 .flex-parent{
@@ -157,35 +170,35 @@ body{
 }
 
 .indexBookTitle{
-    font-size: 6vw;
+    font-size: var(--font-size-title-mobile);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .indexBookAuthor{
-    font-size:4vw;
+    font-size: var(--font-size-author-mobile);
+}
+
+.readBookDiv {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .readBook {
-    height: 8%;
-    width: 8%;
+   width: 40px;
+   margin-right: 50px;
 }
 
 .localisationBook {
-    display: inline-block;
+    display: flex;
+    justify-content: flex-start;
     margin: 0px;
 }
 
 .indexBookLocalisation{
-    font-size: 16px;
+    font-size: var(--font-size-localisation-mobile);
 }
-
-.bookIcon {
-    width: 350px;
-    margin: 0px;
-}
-
 
 .plusImage{
     width: 50px;
@@ -219,6 +232,8 @@ body{
 
 .cross{
     width: var(--cross-width);
+    padding-left: 160px;
+    padding-right: 30px;
 }
 
 
@@ -229,7 +244,7 @@ body{
 
 #addTitle{
     font-size: 5vw;
-    color: var(--second-background-color);
+    color: var(--orange-color);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -241,7 +256,7 @@ body{
     margin: 5vw;
     padding: 5vw;
     border-radius: 10px;
-    background-color: var(--second-background-color); 
+    background-color: var(--orange-color); 
 }
 .formAdd p{
     color: red;
@@ -298,7 +313,7 @@ textarea{
 }
 
 .formInputStyle {
-    color: var(--second-background-color);
+    color: var(--orange-color);
     font-family: roboto;
     margin: 10px;
 }
@@ -342,7 +357,7 @@ textarea{
     background-color: white;
     padding-left: 5vw;
     padding-bottom: 30px;
-    color: var(--second-background-color);
+    color: var(--orange-color);
 }
 
 .hrAdd{
@@ -361,28 +376,28 @@ textarea{
 
 .editCrossSection{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .editPage{
     box-shadow: rgb(197, 196, 196) 5px 5px 5px;
     margin: 10px;
     padding: 10px;
-    background-color: white;
-    padding-left: 5vw;
-    padding-bottom: 30px;
-    color: var(--second-background-color);
+    background-color: var(--main-background-color );
+    color: var(--orange-color);
 }
 
 #editCross{
-    padding-left: 30vw;
-    padding-top:2vw;
+
+    height: 50px;
 }
 
 #editTitle{
     font-size: 5vw;
-    color: var(--second-background-color);
+    color: var(--orange-color);
     font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 .hrEdit{
     text-align: center;
@@ -398,7 +413,7 @@ textarea{
     padding: 10px;
     background-color: white;
     padding-left: 5vw;
-    color: var(--second-background-color);
+    color: var(--orange-color);
 }
 
 #hrDescription{
@@ -425,10 +440,15 @@ textarea{
 
 .footer {
 
+    height: 50px;
     text-align: center;
     margin-top: 5%;
-    color: var(--second-background-color);
+    color: var(--orange-color);
     font-family: roboto;
+}
+
+.legalMentions {
+    margin-bottom: 50px;
 }
 
 @media screen and (min-width : 656px) {
@@ -436,7 +456,7 @@ textarea{
   /*searchBar*/
 
     .searchText {
-        color:var(--second-background-color);
+        color:var(--orange-color);
     }
     
     #userSearch{
@@ -451,7 +471,7 @@ textarea{
     }
 
     .plusImage1{
-        width: 4vw;
+        width: 50px;
     }
   
   /*Index*/
@@ -460,16 +480,20 @@ textarea{
         width: 8vw;
     }
 
+    .readBook {
+        width: 60px;
+     }
+
     .indexBookTitle{
-        font-size: 3vw;
+        font-size: var(--font-size-title-desktop);
     }
 
     .indexBookAuthor{
-        font-size:2vw;
+        font-size:var(--font-size-author-desktop);
     }
 
     .indexBookLocalisation{
-        font-size:1.5vw;
+        font-size: var(--font-size-localisation-desktop);
     }
 
 
@@ -523,7 +547,7 @@ textarea{
     }
     #addTitle{
         font-size: 2em;
-        color: var(--second-background-color);
+        color: var(--orange-color);
         font-family: 'Roboto', sans-serif;
     }
 
@@ -537,7 +561,7 @@ textarea{
 
     #editTitle{
         font-size: 2em;
-        color: var(--second-background-color);
+        color: var(--orange-color);
         font-family: 'Roboto', sans-serif;
     }
     .bookDescription{
@@ -636,7 +660,7 @@ button:hover {
     flex-direction: row;
     justify-content: center;
 	cursor:pointer;
-	color:var(--second-background-color);
+	color:var(--orange-color);
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;

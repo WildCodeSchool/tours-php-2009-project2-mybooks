@@ -2,11 +2,11 @@
 
 {% block content %}
     <section class="editPage">
-        <section class="editCrossSection">
-            <h1 id="editTitle">Modifications</h1>
-            <a href="/book/show/{{ book_array.id }}" id="editCross"><img src="/assets/images/cross.png" class="cross"
-        alt="Image d'une croix permettant de fermer la page d'édition"></a>
-        </section>
+        
+        <div class="hightIcons">
+            <a href="/"><img src="/assets/images/cross.png" class="cross" alt="image d'une croix pour quitter la page"></a>
+        </div>
+        <h2 class="bookTitle">Modifications</h2>
         <hr class="hrEdit">
 
     {% include 'book/_form.html.twig' %}
