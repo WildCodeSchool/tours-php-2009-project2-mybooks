@@ -197,14 +197,15 @@ class Book extends BookManager
     public function setIsbn(string $isbn): Book
     {
         if (empty($isbn)) {
-            $this->errors['isbn'] = 'Veuillez ajouter un ISBN';
-        } elseif (strlen($isbn) > 13) {
-            $this->errors['isbn'] = 'Votre ISBN est trop long';
+            $this->isbn = $isbn;
+        } elseif (strlen($isbn) > 0 && strlen($isbn) != 13) {
+            $this->errors['isbn'] = 'Votre ISBN doit comporter 13 caractères';
         } else {
             $this->isbn = $isbn;
         }
         return $this;
     }
+
 
     /**
      * @return string
@@ -226,6 +227,7 @@ class Book extends BookManager
         $this->hasBeenReadOn = $hasBeenReadOn;
         return $this;
     }
+
 
     /**
      * @return array
