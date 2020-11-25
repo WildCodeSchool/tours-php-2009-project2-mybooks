@@ -4,19 +4,38 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+  
 
-    <title>{% block title %}{% endblock %}</title>
+
+
+    <title>My Books</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/images/favicon.ico" />
     {% block stylesheet %}{% endblock %}
-    <link rel="icon" href="/assets/images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<header class="header">
+    <h1 class= "title"><img class="book-logo" src="/assets/images/favicon.ico"><a href="/../">My Books</a></h1>
+    <p class="user"><img src="/assets/images/user.png" class="userImage" alt="Image représentant le profil utilisateur"> </p>
+</header>
 
-{% block content %}{% endblock %}
-{% block javascript %}{% endblock %}
+{% block content %}
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+
+<footer class="footer">
+    <a href="/book/legalMentions">Mentions légales</a>
+    <p>&copy; 2020 MyBooks</p>
+</footer>
 </body>
 </html>
-
-

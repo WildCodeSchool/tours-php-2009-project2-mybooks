@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="addPage">
+        
+        <div class="hightIcons">
+            <a href="/"><img src="/assets/images/cross.png" class="cross" alt="image d'une croix pour quitter la page"></a>
+        </div>
+        <h2 class="bookTitle">Ajouter un livre</h2>
+        <hr class="hrEdit">
+
+    {% include 'book/_form.html.twig' %}
+    </section>
+{% endblock %}

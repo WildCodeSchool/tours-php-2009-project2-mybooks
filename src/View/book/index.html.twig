@@ -1,0 +1,70 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <main>
+        <div class="picture">
+            <img src="/assets/images/booksPicture.jpg" class="booksPicture" alt="image de page d'accueil">
+        </div>
+        <div class="containerIndex">
+            <h1 class="titleLibrary">Ma bibliothèque</h1>
+            <div class="addBook">
+                <a href="/book/add" class="aPlus"><img src="/assets/images/iconplus.png" class="plusImage1" 
+                alt="image permettant d'accéder au formulaire d'ajout"></a>
+            </div>
+        </div>
+        <hr class="hrLibrary">             
+        <div class="searchBar">
+            <form action="/book/index/" method="POST" >
+                <input type="text" placeholder="Rechercher" id='userSearch' name='userSearch'/>
+                <label for='dataField' class="searchText">dans</label>
+                <select name="dataField" id="dataField">
+                    <option value="title" selected>Titre</option>
+                    <option value="author">Auteur</option>
+                    <option value="releaseDate">Date de parution</option>
+                    <option value="genre">Genre</option>
+                    <option value="isbn">ISBN</option>
+                    <option value="localization">Localisation</option>
+                </select>
+                    <button type="submit" class"button"><img src="/assets/images/magnifyingGlass.png" class="magnifyingGlassImage"></button>
+            </form>            
+        </div>
+
+        <div class="myLibrary">
+
+            <ul  class="flex-parent">
+                {% for book in books %}
+                    <li><a href="/book/show/{{ book.id }}">
+                            <p class="indexBookTitle"> {{ book.title }} </p>
+                            <p class="indexBookAuthor"> {{ book.author }} </p> 
+                            <div class="localisationBook">
+                                <p class="indexBookLocalisation"> Localisation : {{ book.localization }}</p>
+                            </div>
+                            <div class="readBookDiv">
+                                {% if book.hasBeenRead == "Oui" %}
+                                <img src="/assets/images/read-book.png" class="readBook" alt="image indiquant si le livre est lu">
+                                {% else %}
+                                <img src="/assets/images/unread-book.png" class="readBook" alt="image indiquant si le livre est lu"> 
+                                {% endif %}           
+                            </div> 
+                            <hr class="hrLibrary"> 
+                    </a></li>
+                        {% else %}
+                    <li>Aucun livre à afficher!</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="buttons">
+            {% if previousPage > 0 %}
+               <a href="/book/index/{{ previousPage }}" class="previousButton">&lt;&lt; précédent</a>
+            {% endif %}
+            {% if books|length == 10  %}
+               <a href="/book/index/{{ nextPage }}" class="nextButton">Suivant &gt;&gt;</a>
+           {% endif %}     
+        </div>
+        <div class ="alignPlusImage">
+            <a href="/book/add"><img src="/assets/images/iconplus.png" class="plusImage" 
+            alt="image permettant d'accéder au formulaire d'ajout"></a>
+        </div>
+    </main>
+
+{% endblock %}

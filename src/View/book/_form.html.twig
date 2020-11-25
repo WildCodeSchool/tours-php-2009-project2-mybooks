@@ -1,0 +1,53 @@
+<form method="post" class="formAdd">
+
+    <div class="main">
+        
+        <input type="hidden" value="{{ book_array.id }}" name="id">
+
+        <div class="formInputStyle">
+            <p>{{ errors.title }}</p>
+            <label for="title" id="label">Titre</label>
+            <input class="inputPosition" type="text" id="title" name="title" value="{{ book_array.title }}"><br>
+        </div>
+        <div class="formInputStyle">
+            <p>{{ errors.author }}</p>
+            <label for="author" id="label">Auteur</label>
+            <input class="inputPosition" type="text" id="author" name="author" value="{{ book_array.author }}"><br>
+        </div>
+        <div class="formInputStyle">
+            <label for="releaseDate" id="label">Date de Parution</label>
+            <input class="inputPosition" type="date" id="releaseDate" name="releaseDate" value={% if book_array.releaseDate == "" %}""{% else %}
+            {{ book_array.releaseDate }}{% endif %} max="{{today}}"><br>
+        </div>
+        <div class="formInputStyle">
+            <label for="genre" id="label">Genre</label>
+            <input class="inputPosition" type="text" id="genre" name="genre" value="{{ book_array.genre }}"><br>
+        </div>
+        <div class="formInputStyle">
+            <p>{{ errors.isbn }}</p>
+            <label for="isbn" id="label">ISBN</label>
+            <input class="inputPosition" type="text" id="isbn" name="isbn" value="{{ book_array.isbn }}" ><br>
+        </div>
+        <div class="formInputStyle">
+            <label for="hasBeenRead" id="label">Lu</label>
+            <input type="checkbox" id="hasBeenRead" name="hasBeenRead" value="1" {% if book_array.hasBeenRead == "Oui" %} checked {% endif %}>
+        </div>
+        <div class="formInputStyle">
+            <label for="hasBeenReadOn" id="label">Le</label>
+            <input class="inputPosition" type="date" id="hasBeenReadOn" name="hasBeenReadOn" value={% if book_array.hasBeenReadOn == "" %}""{% else %}
+            {{ book_array.hasBeenReadOn }}{% endif %} max="{{today}}" ><br>
+        </div>
+        <div class="formInputStyle">
+            <p>{{ errors.localization }}</p>
+            <label for="localization" id="label">Localisation</label>
+            <input class="inputPosition" type="text" id="localization" name="localization" value="{{ book_array.localization }}"><br>
+        </div>
+        <div class="formInputStyle">
+            <label for="description" id="label">Description</label><br>
+            <textarea class="inputPosition" id="description" name="description">{{ book_array.description }}</textarea><br>
+        </div>
+        <div class="addButtonDiv">
+            <input type="submit" value="Ajouter" class="addBookButton">
+        </div>
+    </div>
+</form>
