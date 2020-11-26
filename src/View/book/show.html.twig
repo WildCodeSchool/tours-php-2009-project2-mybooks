@@ -18,7 +18,14 @@
         <h3>ISBN : {{ book.isbn }}</h3>
         <h3>Lu : {{ book.hasBeenRead }}</h3>
         <h3>Date de lecture : {{ book.hasBeenReadOn }}</h3>
+        {% if book.ownership == "lended" %}
+        <h3>Prêter à : {{ book.friend }}</h3>
+        {% elseif book.ownership == "borrowed" %}
+        <h3>Emprunté à : {{ book.friend }} <h3>
         <h3>Localisation : {{ book.localization }}</h3>
+        {% else %}
+        <h3>Localisation : {{ book.localization }}</h3>
+        {% endif %}
         <h3>Description : {{ book.description }}</h3>
     </section>
 

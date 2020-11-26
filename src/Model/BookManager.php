@@ -33,9 +33,10 @@ class BookManager extends AbstractManager
     {
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
-        " (title, author, releaseDate, hasBeenReadOn, hasBeenRead, isbn, localization, genre, description)
-            VALUES (:title, :author , :releaseDate,
-            :hasBeenReadOn, :hasBeenRead, :isbn, :localization, :genre, :description)");
+        " (title, author, releaseDate, hasBeenReadOn, hasBeenRead, isbn, localization, genre, description,
+        ownership, friend)
+        VALUES (:title, :author , :releaseDate,
+        :hasBeenReadOn, :hasBeenRead, :isbn, :localization, :genre, :description, :ownership, :friend)");
         if ($statement == false) {
             return self::DATABASE_ERROR;
         }
@@ -49,7 +50,9 @@ class BookManager extends AbstractManager
             "localization" => $book->getLocalization(),
             "genre" => $book->getGenre(),
             "description" => $book->getDescription(),
-            "hasBeenRead" => $book->gethasBeenRead()
+            "hasBeenRead" => $book->gethasBeenRead(),
+            "ownership" => $book->getOwnership(),
+            "friend" => $book->getFriend(),
             ])
         ) {
             return intval($this->pdo->lastInsertId());
@@ -61,8 +64,9 @@ class BookManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
         " SET `title` = :title, `author` = :author ,
-        `releaseDate` = :releaseDate,`hasBeenReadOn` = :hasBeenReadOn, `hasBeenRead` = :hasBeenRead, `isbn` = :isbn, 
-        `localization` = :localization, `genre` = :genre, `description` = :description WHERE id=:id");
+        `releaseDate` = :releaseDate,`hasBeenReadOn` = :hasBeenReadOn, `hasBeenRead` = :hasBeenRead, `isbn` = :isbn,
+        `localization` = :localization, `ownership`=:ownership, `friend`=:friend, `genre` = :genre,
+        `description` = :description WHERE id=:id");
         if ($statement == false) {
             return self::DATABASE_ERROR;
         }
@@ -74,6 +78,8 @@ class BookManager extends AbstractManager
             "releaseDate" => $book->getReleaseDate(),
             "hasBeenReadOn" => $book->getHasBeenReadOn(),
             "isbn" => $book->getIsbn(),
+            "ownership" => $book->getOwnership(),
+            "friend" => $book->getFriend(),
             "localization" => $book->getLocalization(),
             "genre" => $book->getGenre(),
             "description" => $book->getDescription(),
@@ -101,7 +107,7 @@ class BookManager extends AbstractManager
         }
         return $statement->execute();
     }
-  
+
     /**
     * @param string $dataField
     * @param string $userSearch
@@ -124,7 +130,7 @@ class BookManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
-  
+
     public function selectByTenPerPage(int $page)
     {
         // prepared request

@@ -89,6 +89,12 @@ class BookController extends AbstractController
             $book->setTitle($_POST['title']);
             $book->setAuthor($_POST['author']);
             $book->setGenre($_POST['genre']);
+            $book->setOwnership($_POST['ownership']);
+            if (!empty($_POST['friend'])) {
+                $book->setFriend($_POST['friend']);
+            } else {
+                $book->setFriend('non défini');
+            }
             $book->setLocalization($_POST['localization']);
             $book->setHasBeenRead($read);
             $book->setReleaseDate($_POST['releaseDate']);
@@ -105,6 +111,8 @@ class BookController extends AbstractController
                 $bookArray['title'] = $book->getTitle();
                 $bookArray['author'] = $book->getAuthor();
                 $bookArray['genre'] = $book->getGenre();
+                $bookArray['ownership'] = $book->getOwnership();
+                $bookArray['friend'] = $book->getFriend();
                 $bookArray['localization'] = $book->getLocalization();
                 $bookArray['releaseDate'] = $book->getReleaseDate();
                 $bookArray['description'] = $book->getDescription();
@@ -133,6 +141,12 @@ class BookController extends AbstractController
             $book->setTitle($_POST['title']);
             $book->setAuthor($_POST['author']);
             $book->setGenre($_POST['genre']);
+            $book->setOwnership($_POST['ownership']);
+            if (!empty($_POST['friend'])) {
+                $book->setFriend($_POST['friend']);
+            } else {
+                $book->setFriend('non défini');
+            }
             $book->setLocalization($_POST['localization']);
             $book->setHasBeenRead($read);
             $book->setReleaseDate($_POST['releaseDate']);

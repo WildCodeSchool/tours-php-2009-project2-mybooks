@@ -8,6 +8,8 @@ class Book extends BookManager
     private $title;
     private $author;
     private $genre;
+    private $ownership;
+    private $friend;
     private $localization;
     private $hasBeenRead;
     private $releaseDate;
@@ -98,6 +100,42 @@ class Book extends BookManager
     public function setGenre(string $genre): Book
     {
         $this->genre = $genre;
+        return $this;
+    }
+
+     /**
+     * @return string
+     */
+    public function getOwnership(): ?string
+    {
+        return $this->ownership;
+    }
+
+    /**
+     * @param string $ownership
+     * @return Book
+     */
+    public function setOwnership(string $ownership): Book
+    {
+        $this->ownership = $ownership;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFriend(): ?string
+    {
+        return $this->friend;
+    }
+
+    /**
+     * @param string $friend
+     * @return Book
+     */
+    public function setFriend(string $friend): Book
+    {
+        $this->friend = $friend;
         return $this;
     }
 
