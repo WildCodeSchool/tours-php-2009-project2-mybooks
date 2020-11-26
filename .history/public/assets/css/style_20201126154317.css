@@ -49,6 +49,7 @@ body{
     font-weight: bolder;
     width: 100%;
     box-shadow: rgb(88, 88, 88) 0px 10px 10px;
+    z-index: 50;
 }
 
 .book-logo {

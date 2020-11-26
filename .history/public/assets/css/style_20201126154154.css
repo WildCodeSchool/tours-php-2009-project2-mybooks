@@ -48,7 +48,8 @@ body{
     font-family: roboto;
     font-weight: bolder;
     width: 100%;
-    box-shadow: rgb(88, 88, 88) 0px 10px 10px;
+    box-shadow: rgb(136, 136, 136) 0px 10px 10px;
+    z-index: 10;
 }
 
 .book-logo {

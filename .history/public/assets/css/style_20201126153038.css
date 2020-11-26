@@ -48,7 +48,7 @@ body{
     font-family: roboto;
     font-weight: bolder;
     width: 100%;
-    box-shadow: rgb(88, 88, 88) 0px 10px 10px;
+    box-shadow: rgb(197, 196, 196) 0px 3px 5px;
 }
 
 .book-logo {
@@ -71,6 +71,15 @@ body{
 
 .bookTitle {
     text-align: center;
+}
+
+.user{
+    margin-right: 30px;
+    width: 50px;
+}
+
+.userImage{
+    width: 40px;
 }
 
 /*Index*/
@@ -112,6 +121,7 @@ body{
 .booksPicture{
     width: 100%;
     height: 30vw;
+    border: 1px solid white;
     margin-bottom: 1%;
 }
 
