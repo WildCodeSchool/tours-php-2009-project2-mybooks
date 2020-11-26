@@ -9,15 +9,15 @@
             <a href="/"><img src="/assets/images/cross.png" class="cross" alt="image d'une croix pour quitter la page"></a>
         </div>
 
-        <h2 class="bookTitle">{{ book.title }}</h2>
+        <h2>{{ book.title }}</h2>
         <hr id="hrDescription">
 
         <h3>Auteur : {{ book.author }}</h3>
-        <h3>Date de parution : {{ book.releaseDate }}</h3>
+        <h3>Date de parution : {{ book.releaseDate|date("d/m/Y") }}</h3>
         <h3>Genre : {{ book.genre }}</h3>
         <h3>ISBN : {{ book.isbn }}</h3>
         <h3>Lu : {{ book.hasBeenRead }}</h3>
-        <h3>Date de lecture : {{ book.hasBeenReadOn }}</h3>
+        <h3>Date de lecture : {{ book.hasBeenReadOn|date("d/m/Y") }}</h3>
         {% if book.ownership == "lended" %}
         <h3>Prêter à : {{ book.friend }}</h3>
         {% elseif book.ownership == "borrowed" %}
