@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS `book` (
   `localization` varchar(100) NOT NULL,
   `genre` varchar(50) DEFAULT NULL,
   `description` text,
+  `ownership` varchar(10) NULL,
+  `friend` varchar(50) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
