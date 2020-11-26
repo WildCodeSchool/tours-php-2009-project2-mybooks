@@ -48,7 +48,8 @@ body{
     font-family: roboto;
     font-weight: bolder;
     width: 100%;
-    box-shadow: rgb(197, 196, 196) 0px 3px 5px;
+    box-shadow: rgb(39, 38, 37) 0px 5px 5px;
+    z-index: 2;
 }
 
 .book-logo {
@@ -71,15 +72,6 @@ body{
 
 .bookTitle {
     text-align: center;
-}
-
-.user{
-    margin-right: 30px;
-    width: 50px;
-}
-
-.userImage{
-    width: 40px;
 }
 
 /*Index*/
@@ -123,6 +115,7 @@ body{
     height: 30vw;
     border: 1px solid white;
     margin-bottom: 1%;
+    z-index: -2;
 }
 
 /*searchBar*/
@@ -135,6 +128,7 @@ body{
 
 .searchText {
     color:var(--orange-color);
+    font-size: 20px;
 }
 
 #userSearch{
@@ -149,10 +143,12 @@ body{
 }
 
 .magnifyingGlassImage{
-    width: var(--magnifyingGlass-width);
+    width: 15px;
 }
 
 /*bookList*/
+
+
 
 .myLibrary ul {
     padding: 0;
@@ -469,10 +465,12 @@ textarea{
     }
     .legalMentions h2 {
     text-align: center;
+    color: var(--orange-color);
+
     }
     
     .legalMentions h2, h4 {
-    color: var(--second-background-color);
+    color: var(--orange-color);
 }
 
 
@@ -489,24 +487,36 @@ textarea{
 
     .searchText {
         color:var(--orange-color);
+        font-size: 30px;
+        margin-right: 10px;
     }
     
     #userSearch{
         border-radius: 10px;
         width: 30vw;
         height: 80%;
+        font-size: 20px;
+        margin-right: 10px;
     }
     
     #dataField{
         border-radius: 10px;
         height: 80%;
+        font-size: 20px;
+        margin-right: 10px;
     }
 
     .plusImage1{
         width: 45px;
     }
+
+    .magnifyingGlassImage{
+        width: 20px;
+    }
   
   /*Index*/
+
+
 
     .plusImage{
         width: 60px;
@@ -517,10 +527,10 @@ textarea{
     }
 
     .containerIndex h1
-{
+    {
     font-size: 50px;
 
-}
+    }
 
     .indexBookTitle{
         font-size: var(--font-size-title-desktop);
@@ -542,7 +552,9 @@ textarea{
         margin-right: 30px;
         box-shadow: rgb(197, 196, 196) 5px 5px 5px;
         background-color: white;
+
     }
+
 
     /*Form*/
 
@@ -598,6 +610,22 @@ textarea{
         font-family: 'Roboto', sans-serif;
     }
 
+
+    .inputPosition{
+        padding: 2vw;
+        margin: 2vw;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        font-size:25px;
+    }
+
+    .bookTitle {
+        text-align: center;
+        font-size: 40px;
+    }
+    
+
     /*Edit*/
     .editPage{
         margin-left: 15em;
@@ -612,8 +640,36 @@ textarea{
     }
     .bookDescription{
         margin: 5%;
+
     }
 }
+
+
+@media only screen and (min-width: 1200px) {
+
+    .flex-parent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 30px;
+        margin-right: 30px;
+        box-shadow: rgb(197, 196, 196) 5px 5px 5px;
+        background-color: white;
+
+        margin-left: 15em;
+        margin-right: 15em;
+    }
+    
+    .bookDescription{
+        margin: 5%;
+        margin-left: 15em;
+        margin-right: 15em;
+    }
+
+}
+
+
+
 
 /*Delete confimation*/
 
@@ -723,3 +779,5 @@ button:hover {
 	position:relative;
 	top:1px;
 }
+
+

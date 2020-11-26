@@ -8,6 +8,8 @@ class Book extends BookManager
     private $title;
     private $author;
     private $genre;
+    private $ownership;
+    private $friend;
     private $localization;
     private $hasBeenRead;
     private $releaseDate;
@@ -98,6 +100,42 @@ class Book extends BookManager
     public function setGenre(string $genre): Book
     {
         $this->genre = $genre;
+        return $this;
+    }
+
+     /**
+     * @return string
+     */
+    public function getOwnership(): ?string
+    {
+        return $this->ownership;
+    }
+
+    /**
+     * @param string $ownership
+     * @return Book
+     */
+    public function setOwnership(string $ownership): Book
+    {
+        $this->ownership = $ownership;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFriend(): ?string
+    {
+        return $this->friend;
+    }
+
+    /**
+     * @param string $friend
+     * @return Book
+     */
+    public function setFriend(string $friend): Book
+    {
+        $this->friend = $friend;
         return $this;
     }
 
@@ -197,14 +235,15 @@ class Book extends BookManager
     public function setIsbn(string $isbn): Book
     {
         if (empty($isbn)) {
-            $this->errors['isbn'] = 'Veuillez ajouter un ISBN';
-        } elseif (strlen($isbn) > 13) {
-            $this->errors['isbn'] = 'Votre ISBN est trop long';
+            $this->isbn = $isbn;
+        } elseif (strlen($isbn) > 0 && strlen($isbn) != 13) {
+            $this->errors['isbn'] = 'Votre ISBN doit comporter 13 caractères';
         } else {
             $this->isbn = $isbn;
         }
         return $this;
     }
+
 
     /**
      * @return string
@@ -226,6 +265,7 @@ class Book extends BookManager
         $this->hasBeenReadOn = $hasBeenReadOn;
         return $this;
     }
+
 
     /**
      * @return array

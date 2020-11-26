@@ -1,3 +1,7 @@
+
+{% block stylesheet %}
+    <link href="/assets/css/togglebutton.css" rel="stylesheet" />
+{% endblock %}
 <form method="post" class="formAdd">
 
     <div class="main">
@@ -25,8 +29,24 @@
         </div>
         <div class="formInputStyle">
             <p>{{ errors.isbn }}</p>
-            <label for="isbn" id="label">ISBN</label>
+            <label for="isbn" id="label">ISBN (comporte 13 caractères)</label>
             <input class="inputPosition" type="text" id="isbn" name="isbn" value="{{ book_array.isbn }}" ><br>
+        </div>
+        <div class="switch-toggle switch-3 switch-candy">
+        <input id="borrowed" name="ownership" type="radio" value="borrowed"  {% if book_array.ownership == "borrowed" %} checked {% endif %} >
+        <label for="borrowed" onclick="">Emprunté</label>
+
+        <input id="mine" name="ownership" type="radio" value="mine" {% if book_array.ownership == "mine" or book_array.ownership == "" %} checked {% endif %} >
+        <label for="mine" onclick="">Mien</label>
+
+        <input id="lended" name="ownership" type="radio" value="lended"{% if book_array.ownership == "lended" %} checked {% endif %}>
+        <label for="lended" onclick="">Prêté</label>
+        
+        <a></a>
+        </div>
+        <div class="formInputStyle">
+            <label for="friend" id="label">à</label>
+            <input class="inputPosition" type="text" id="friend" name="friend" value="{% if book_array.ownership == "mine" %}{% else %}{{ book_array.friend }}{% endif %}" >
         </div>
         <div class="formInputStyle">
             <label for="hasBeenRead" id="label">Lu</label>
